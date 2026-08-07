@@ -158,21 +158,23 @@ n_null     <- nrow(null_clips)
 
 ::: {.callout-note appearance="simple" icon="false"}
 **📋 Document status**, This is a **Statistical Analysis Plan (SAP)**: the
-analysis is specified here *before* the full dataset is analysed, so the
-eventual paper can state that the plan was fixed in advance. Every figure
-and statistic is rebuilt live from the extraction pipeline when this
-document is rendered. Nothing has been run on the genuine-versus-performed
-contrast, because that data has not yet arrived.
+analysis is specified here *before* the full dataset is analysed.
+:::
+::: {.callout-note appearance="simple"}
+**Reproducible code.** This report renders from small committed summary files
+in the folder `results_outputs`; the raw data is not needed. Every statistic, table and figure
+below, including all plots, is rebuilt live from those summaries
+when the document is rendered. Full code, data summaries:
+<https://github.com/delphinedang/Smile_Project>. Session information is in the
+Appendix.
 :::
 
 | Field | Detail |
 |------------------|------------------------------------------------------|
-| Version | 1.0, awaiting approval |
+| Version | final draft, awaiting approval |
 | Prepared by | Delphine Dang, with Dr Jie Kang |
 | Approver | Prof Ted Ruffman, Department of Psychology, University of Otago |
-| Supersedes | None |
 | Locked on approval | Confirmatory outcomes (@sec-outcomes) · Model specification (@sec-model) · Exclusion rules (@sec-exclusions) |
-| Amendments | Any change after approval recorded as v1.1+ with rationale, before results are seen |
 
 : Document control {#tbl-control}
 

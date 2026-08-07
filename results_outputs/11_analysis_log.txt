@@ -1,0 +1,74 @@
+SMILE PROJECT - ANALYSIS LOG
+Generated: 2026-08-07 14:20:15
+Engine   : lme4::lmer
+Mode     : PILOT
+==========================================================================
+
+1. SAMPLE
+--------------------------------------------------------------------------
+  Clips extracted : 95
+  Excluded        : 1
+      E25SA07-03 - stimulus label conflict
+  Analysed        : 94
+  Smilers         : 16
+
+  Cells (rows = culture, cols = smile type):
+             
+              Fake Genuine
+      Chinese    1      93
+
+2. MODE AND WHAT IT MEANS
+--------------------------------------------------------------------------
+  PILOT. The design does not yet support the planned models: at least
+  one smile type has fewer than 5 clips.
+
+  Completed: derived variables, descriptives, censoring audit, figures.
+  BLOCKED  : all inferential models (genuine vs fake, culture
+             interaction). These need the remaining data cells.
+
+  Nothing about the script needs to change when that data arrives.
+  Re-run 01 then 02 and it will switch to FULL automatically.
+
+3. MODEL SPECIFICATION
+--------------------------------------------------------------------------
+  outcome ~ smile_type * culture + (1 | smiler_id) + (1 | stimulus)
+  Crossed random intercepts, fitted with lme4::lmer.
+
+  smile_type  within-smiler   (each person produced both types)
+  culture     between-smiler
+  smiler_id   random intercept - repeated smiles from one person are
+              not independent, and people vary in expressiveness
+  stimulus    random intercept - some videos are funnier than others
+
+  Unit of analysis is the individual smile, NOT the person mean.
+  This is deliberate: the number of smiles per person varies, and
+  averaging would treat a person with one smile as being as precise
+  as a person with eight.
+
+  Duration covariate added for cumulative outcomes: _durtot _durmax _auc _neps
+
+4. MULTIPLICITY
+--------------------------------------------------------------------------
+  Confirmatory (uncorrected, pre-specified): AU06_pk, AU12_pk, duchenne_prop, Happy_pk
+  Exploratory (Benjamini-Hochberg FDR at 0.05): all remaining AUs
+  This split must be fixed BEFORE the full data is seen.
+
+5. RESULTS
+--------------------------------------------------------------------------
+  No inferential results - see mode above.
+
+6. STANDING CAVEATS
+--------------------------------------------------------------------------
+  a) AU intensity is ORDINAL (A-E). The models treat it as continuous.
+     Defensible with six levels and standard in this literature, but it
+     is an approximation - flag it in the write-up.
+  b) Duration outcomes are RIGHT-CENSORED. Where an AU is still active
+     in the final frame the recorded duration is a lower bound, not a
+     true value. Do not report raw mean durations for AU06, AU12, AU25
+     or AU43 without saying so.
+  c) 8 fps caps all timing resolution at 125 ms.
+  d) prop_active is conditional on the clip window and is the
+     recommended duration-like outcome while censoring stands.
+
+==========================================================================
+END OF LOG

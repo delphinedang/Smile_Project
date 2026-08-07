@@ -1,0 +1,155 @@
+FACEREADER EXTRACTION - DATA QUALITY REPORT
+Generated: 2026-08-07 13:13:48
+Source   : /Users/delphine/Documents/Research projects /smile_project/raw_data_email
+==========================================================================
+
+1. FILE INVENTORY
+--------------------------------------------------------------------------
+  ok                     95
+  state_log_only         13
+  TOTAL                 108
+
+  Files that could NOT be used (need re-export from FaceReader as a
+  DETAILED log - the current export contains only dominant-expression
+  transitions, with no emotion values and no action units):
+    - Participant 209_Participant 179  chi hap 1 C015_Analysis 1_video_20260707_184622_state.txt
+    - Participant 210_Participant 180 chi hap 2 C015_Analysis 1_video_20260707_184702_state.txt
+    - Participant 211_Participant 181 chi hap 3 C015_Analysis 1_video_20260707_185026_state.txt
+    - Participant 212_Participant 182 chi hap 4 C015_Analysis 1_video_20260707_185058_state.txt
+    - Participant 213_Participant 183 chi hap 5 C015_Analysis 1_video_20260707_185134_state.txt
+    - Participant 214_Participant 184 chi hap 6 C015_Analysis 1_video_20260707_185204_state.txt
+    - Participant 297_Participant 268 chi hap 5 C024 _Analysis 1_video_20260713_141440_state.txt
+    - Participant 365_Participant 336 chi hap 1 C031_Analysis 1_video_20260713_152030_state.txt
+    - Participant 366_Participant 337 chi hap 2 C031_Analysis 1_video_20260713_152057_state.txt
+    - Participant 367_Participant 338 chi hap 3 C031_Analysis 1_video_20260713_152125_state.txt
+    - Participant 368_Participant 339 chi hap 4 C031_Analysis 1_video_20260713_152210_state.txt
+    - Participant 369_Participant 340 chi hap 5 C031_Analysis 1_video_20260713_152242_state.txt
+    - Participant 370_Participant 341 chi hap 6 C031_Analysis 1_video_20260713_152308_state.txt
+
+2. DESIGN COVERAGE (usable clips)
+--------------------------------------------------------------------------
+  Cells present:
+             
+              Fake Genuine UNRESOLVED
+      Chinese    1      93          1
+
+  Smilers: 16  (C11, C13, C14, C17, C18, C19, C20, C22, C23, C24, C25, C26, C27, C28, C30, C32)
+
+  Clips per smiler:
+    C11     6
+    C13     6
+    C14     6
+    C17     6
+    C18     6
+    C19     6
+    C20     6
+    C22     6
+    C23     6
+    C24     5
+    C25     6
+    C26     6
+    C27     6
+    C28     6
+    C30     6
+    C32     6
+
+  Clips per stimulus:
+    Happy 1 CN     15
+    Happy 2 CN     16
+    Happy 3 CN     14
+    Happy 4 CN     11
+    Happy 5 CN     14
+    Happy 6 CN     11
+    Happy 7 CN     13
+    Sad 2 CN        1
+
+2b. STIMULUS LABEL INTEGRITY  ** ACTION REQUIRED **
+--------------------------------------------------------------------------
+  Each clip records the stimulus twice: once as the source video name
+  (e.g. 'Happy 7 CN') and once inside the clip code (HA / SA). These
+  should always agree. Where they disagree the condition is ambiguous,
+  so smile_type is left BLANK and the clip is excluded from the
+  condition summaries below. It must not be analysed until resolved.
+
+  Conflicting clips: 1
+    clip code E25SA07-03  says SA  but source video is 'Happy 7 CN' (HA)
+      export file: Participant 310_Participant 281  chi hap 6 C025 _Analysis 1_video_20260713_142409_detailed.txt
+
+  -> Ask Ted which is correct: was this smile recorded against a
+     humorous or a sad video? One of the two labels is a typo.
+
+3. TEMPORAL PROPERTIES
+--------------------------------------------------------------------------
+  Frame rate(s) found: 8 fps
+  NOTE: a 30 fps source was expected. At 8 fps one frame = 125 ms,
+  which is the floor on any duration or onset/offset measurement.
+
+  Clip duration (s):  min 2.62   median 5.00   mean 5.69   max 12.62
+  Clip lengths are unequal, so any CUMULATIVE measure (dur_total_s, auc)
+  is partly a measure of clip length. Prefer peak / mean / prop_active,
+  or include clip_duration_s as a covariate.
+
+4. MISSING DATA (FIT_FAILED cells)
+--------------------------------------------------------------------------
+  Total FIT_FAILED cells: 28
+  Affected files:
+    Participant 237_Participant 207 chi hap 5 C018_Analysis 1_vide  28
+  These are recoded to NA, never to zero.
+
+5. CENSORING - action units already on at clip start / still on at clip end
+--------------------------------------------------------------------------
+  This is the issue Ted raised. An AU that is already active in frame 1
+  has an unknown onset; one still active in the final frame has an unknown
+  offset. Percentages below are of usable clips (n = 95).
+
+  AU     Muscle                    start-cens    end-cens
+  AU01   Inner Brow Raiser             5    5%      0    0%
+  AU02   Outer Brow Raiser             6    6%      1    1%
+  AU04   Brow Lowerer                 11   12%     15   16%
+  AU05   Upper Lid Raiser              1    1%      0    0%
+  AU06   Cheek Raiser                 20   21%     60   63%
+  AU07   Lid Tightener                11   12%     23   24%
+  AU09   Nose Wrinkler                11   12%     15   16%
+  AU10   Upper Lip Raiser              2    2%      0    0%
+  AU12   Lip Corner Puller            27   28%     66   69%
+  AU14   Dimpler                       1    1%      1    1%
+  AU15   Lip Corner Depressor          3    3%      3    3%
+  AU17   Chin Raiser                   8    8%      9    9%
+  AU18   Lip Pucker                    0    0%      0    0%
+  AU20   Lip Stretcher                 1    1%      1    1%
+  AU23   Lip Tightener                11   12%     11   12%
+  AU24   Lip Pressor                   5    5%      2    2%
+  AU25   Lips Part                    26   27%     44   46%
+  AU26   Jaw Drop                      6    6%     12   13%
+  AU27   Mouth Stretch                 0    0%      0    0%
+  AU43   Eyes Closed                  62   65%     86   91%
+
+  Implication: peak intensity, mean intensity and prop_active are safe.
+  Raw onset/offset times and durations are NOT, for any AU with a high
+  censoring rate - those durations are lower bounds, not true values.
+
+6. AU12 (Lip Corner Puller) - the smile marker, by smile type
+--------------------------------------------------------------------------
+  (clips with a label conflict are excluded)
+  Genuine   n = 93 | peak 2.44 (SD 1.35) | prop active 0.75 | longest bout 4.22s
+  Fake      n =  1 | peak 1.00 (SD NA) | prop active 0.20 | longest bout 1.50s
+
+  AU06 (Cheek Raiser) - the Duchenne marker:
+  Genuine   n = 93 | peak 2.06 (SD 1.34) | prop active 0.66 | longest bout 3.76s
+  Fake      n =  1 | peak 0.00 (SD NA) | prop active 0.00 | longest bout 0.00s
+
+7. CODING DECISIONS APPLIED
+--------------------------------------------------------------------------
+  AU intensity : NotActive=0, A=1, B=2, C=3, D=4, E=5, FIT_FAILED=NA
+  AU active    : intensity >= 1 (A and above)
+  Emotion active: probability >= 0.5
+  Smile type   : HA stimulus = Genuine, SA stimulus = Fake
+  Smiler ID    : taken from the INTERNAL clip code (e.g. E17HA07-02 -> C17),
+                 NOT from the Participant_### numbers in the export
+                 filename, which are upload IDs and do not identify a person.
+  Stimulus     : also taken from the internal clip code. The chi_hap_N
+                 number in the export filename does not always match the
+                 stimulus (e.g. C24 chi_hap_4 is actually Happy 5 CN).
+
+==========================================================================
+END OF REPORT

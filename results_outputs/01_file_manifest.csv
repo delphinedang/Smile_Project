@@ -1,0 +1,109 @@
+"export_file","status","clip_id","smiler_id","culture","smile_type","label_conflict","stim_from_label","stim_from_code","stimulus","n_frames","duration_s","frame_rate","n_fitfail_cells"
+"Participant 173_Participant 143 chi hap 1 C011_Analysis 4_video_20260707_180017_detailed.txt","ok","E11HA01-01","C11","Chinese","Genuine",0,"HA","HA","Happy 1 CN",23,2.875,8,0
+"Participant 174_Participant 144 chi hap 2 C011_Analysis 1_video_20260707_180058_detailed.txt","ok","E11HA02-04","C11","Chinese","Genuine",0,"HA","HA","Happy 2 CN",47,5.875,8,0
+"Participant 175_Participant 145 chi hap 3 C011_Analysis 1_video_20260707_180122_detailed.txt","ok","E11HA03-03","C11","Chinese","Genuine",0,"HA","HA","Happy 3 CN",37,4.625,8,0
+"Participant 176_Participant 146 chi hap 4 C011_Analysis 1_video_20260707_180152_detailed.txt","ok","E11HA04-05","C11","Chinese","Genuine",0,"HA","HA","Happy 4 CN",34,4.25,8,0
+"Participant 177_Participant 147 chi hap 5 C011_Analysis 1_video_20260707_180217_detailed.txt","ok","E11HA05-04","C11","Chinese","Genuine",0,"HA","HA","Happy 5 CN",37,4.625,8,0
+"Participant 178_Participant 148 chi hap 6 C011_Analysis 1_video_20260707_180253_detailed.txt","ok","E11HA06-04","C11","Chinese","Genuine",0,"HA","HA","Happy 6 CN",78,9.75,8,0
+"Participant 185_Participant 155 chi hap 1 C013_Analysis 1_video_20260707_181055_detailed.txt","ok","E13HA01-03","C13","Chinese","Genuine",0,"HA","HA","Happy 1 CN",23,2.875,8,0
+"Participant 186_Participant 156 chi hap 2 C013_Analysis 1_video_20260707_181125_detailed.txt","ok","E13HA02-03","C13","Chinese","Genuine",0,"HA","HA","Happy 2 CN",69,8.625,8,0
+"Participant 187_Participant 157 chi hap 3 C013_Analysis 1_video_20260707_181201_detailed.txt","ok","E13HA03-03","C13","Chinese","Genuine",0,"HA","HA","Happy 3 CN",69,8.625,8,0
+"Participant 188_Participant 158 chi hap 4 C013_Analysis 1_video_20260707_181235_detailed.txt","ok","E13HA04-03","C13","Chinese","Genuine",0,"HA","HA","Happy 4 CN",51,6.375,8,0
+"Participant 189_Participant 159 chi hap 5 C013_Analysis 1_video_20260707_181309_detailed.txt","ok","E13HA05-03","C13","Chinese","Genuine",0,"HA","HA","Happy 5 CN",37,4.625,8,0
+"Participant 190_Participant 160 chi hap 6 C013_Analysis 1_video_20260707_181346_detailed.txt","ok","E13HA06-04","C13","Chinese","Genuine",0,"HA","HA","Happy 6 CN",33,4.125,8,0
+"Participant 197_Participant 167 chi hap 1 C014_Analysis 1_video_20260707_183148_detailed.txt","ok","E14HA01-02","C14","Chinese","Genuine",0,"HA","HA","Happy 1 CN",40,5,8,0
+"Participant 198_Participant 168  chi hap 2 C014_Analysis 1_video_20260707_183216_detailed.txt","ok","E14HA01-04","C14","Chinese","Genuine",0,"HA","HA","Happy 1 CN",39,4.875,8,0
+"Participant 199_Participant 169  chi hap 3 C014_Analysis 1_video_20260707_183249_detailed.txt","ok","E14HA02-01","C14","Chinese","Genuine",0,"HA","HA","Happy 2 CN",61,7.625,8,0
+"Participant 200_Participant 170  chi hap 4 C014_Analysis 1_video_20260707_183335_detailed.txt","ok","E14HA02-02","C14","Chinese","Genuine",0,"HA","HA","Happy 2 CN",36,4.5,8,0
+"Participant 201_Participant 171  chi hap 5 C014_Analysis 1_video_20260707_183530_detailed.txt","ok","E14HA04-01","C14","Chinese","Genuine",0,"HA","HA","Happy 4 CN",67,8.375,8,0
+"Participant 202_Participant 172  chi hap 6 C014_Analysis 1_video_20260707_183629_detailed.txt","ok","E14HA07-01","C14","Chinese","Genuine",0,"HA","HA","Happy 7 CN",61,7.625,8,0
+"Participant 209_Participant 179  chi hap 1 C015_Analysis 1_video_20260707_184622_state.txt","state_log_only",,,,,,,,,,,,
+"Participant 210_Participant 180 chi hap 2 C015_Analysis 1_video_20260707_184702_state.txt","state_log_only",,,,,,,,,,,,
+"Participant 211_Participant 181 chi hap 3 C015_Analysis 1_video_20260707_185026_state.txt","state_log_only",,,,,,,,,,,,
+"Participant 212_Participant 182 chi hap 4 C015_Analysis 1_video_20260707_185058_state.txt","state_log_only",,,,,,,,,,,,
+"Participant 213_Participant 183 chi hap 5 C015_Analysis 1_video_20260707_185134_state.txt","state_log_only",,,,,,,,,,,,
+"Participant 214_Participant 184 chi hap 6 C015_Analysis 1_video_20260707_185204_state.txt","state_log_only",,,,,,,,,,,,
+"Participant 221_Participant 191 chi hap 1 C017_Analysis 1_video_20260707_185846_detailed.txt","ok","E17HA02-01","C17","Chinese","Genuine",0,"HA","HA","Happy 2 CN",70,8.75,8,0
+"Participant 222_Participant 192 chi hap 2 C017_Analysis 1_video_20260707_185922_detailed.txt","ok","E17HA02-02","C17","Chinese","Genuine",0,"HA","HA","Happy 2 CN",48,6,8,0
+"Participant 223_Participant 193 chi hap 3 C017_Analysis 1_video_20260707_190037_detailed.txt","ok","E17HA03-01","C17","Chinese","Genuine",0,"HA","HA","Happy 3 CN",33,4.125,8,0
+"Participant 224_Participant 194 chi hap 4 C017_Analysis 1_video_20260707_190111_detailed.txt","ok","E17HA05-05","C17","Chinese","Genuine",0,"HA","HA","Happy 5 CN",30,3.75,8,0
+"Participant 225_Participant 195 chi hap 5 C017_Analysis 1_video_20260707_190144_detailed.txt","ok","E17HA06-02","C17","Chinese","Genuine",0,"HA","HA","Happy 6 CN",50,6.25,8,0
+"Participant 226_Participant 196 chi hap 6 C017_Analysis 1_video_20260707_190214_detailed.txt","ok","E17HA07-02","C17","Chinese","Genuine",0,"HA","HA","Happy 7 CN",29,3.625,8,0
+"Participant 233_Participant 203 chi hap 1 C018_Analysis 1_video_20260707_190709_detailed.txt","ok","E18HA01-02","C18","Chinese","Genuine",0,"HA","HA","Happy 1 CN",24,3,8,0
+"Participant 234_Participant 204 203 chi hap 2 C018_Analysis 1_video_20260707_190742_detailed.txt","ok","E18HA05-01","C18","Chinese","Genuine",0,"HA","HA","Happy 5 CN",32,4,8,0
+"Participant 235_Participant 205 203 chi hap 3 C018_Analysis 1_video_20260707_191912_detailed.txt","ok","E18HA05-03","C18","Chinese","Genuine",0,"HA","HA","Happy 5 CN",40,5,8,0
+"Participant 236_Participant 206 chi hap 4 C018_Analysis 1_video_20260707_191959_detailed.txt","ok","E18HA06-01","C18","Chinese","Genuine",0,"HA","HA","Happy 6 CN",28,3.5,8,0
+"Participant 237_Participant 207 chi hap 5 C018_Analysis 1_video_20260707_192041_detailed.txt","ok","E18HA07-01","C18","Chinese","Genuine",0,"HA","HA","Happy 7 CN",22,2.75,8,28
+"Participant 238_Participant 208 chi hap 6 C018_Analysis 1_video_20260707_192110_detailed.txt","ok","E18HA07-03","C18","Chinese","Genuine",0,"HA","HA","Happy 7 CN",41,5.125,8,0
+"Participant 245_Participant 215 chi hap 1 C019_Analysis 1_video_20260707_192839_detailed.txt","ok","E19HA02-04","C19","Chinese","Genuine",0,"HA","HA","Happy 2 CN",40,5,8,0
+"Participant 246_Participant 216 chi hap 2 C019_Analysis 1_video_20260707_192930_detailed.txt","ok","E19HA03-05","C19","Chinese","Genuine",0,"HA","HA","Happy 3 CN",80,10,8,0
+"Participant 247_Participant 217 chi hap 3 C019_Analysis 1_video_20260707_193004_detailed.txt","ok","E19HA03-06","C19","Chinese","Genuine",0,"HA","HA","Happy 3 CN",39,4.875,8,0
+"Participant 248_Participant 218 chi hap 4 C019_Analysis 1_video_20260707_193049_detailed.txt","ok","E19HA04-03","C19","Chinese","Genuine",0,"HA","HA","Happy 4 CN",52,6.5,8,0
+"Participant 249_Participant 219 chi hap 5 C019_Analysis 1_video_20260707_193123_detailed.txt","ok","E19HA05-03","C19","Chinese","Genuine",0,"HA","HA","Happy 5 CN",25,3.125,8,0
+"Participant 250_Participant 220 chi hap 6 C019_Analysis 1_video_20260707_193152_detailed.txt","ok","E19HA06-04","C19","Chinese","Genuine",0,"HA","HA","Happy 6 CN",64,8,8,0
+"Participant 257_Participant 228 chi hap 1 C020_Analysis 2_video_20260707_194112_detailed.txt","ok","E20HA01-01","C20","Chinese","Genuine",0,"HA","HA","Happy 1 CN",38,4.75,8,0
+"Participant 258_Participant 229 chi hap 2 C020_Analysis 2_video_20260707_194151_detailed.txt","ok","E20HA04-01","C20","Chinese","Genuine",0,"HA","HA","Happy 4 CN",38,4.75,8,0
+"Participant 259_Participant 230 chi hap 3 C020_Analysis 2_video_20260707_194222_detailed.txt","ok","E20HA05-02","C20","Chinese","Genuine",0,"HA","HA","Happy 5 CN",37,4.625,8,0
+"Participant 260_Participant 231 chi hap 4 C020_Analysis 3_video_20260707_194246_detailed.txt","ok","E20HA06-01","C20","Chinese","Genuine",0,"HA","HA","Happy 6 CN",37,4.625,8,0
+"Participant 261_Participant 232 chi hap 5 C020_Analysis 2_video_20260707_194330_detailed.txt","ok","E20HA06-02","C20","Chinese","Genuine",0,"HA","HA","Happy 6 CN",40,5,8,0
+"Participant 262_Participant 233 chi hap 6 C020_Analysis 1_video_20260707_194403_detailed.txt","ok","E20HA06-03","C20","Chinese","Genuine",0,"HA","HA","Happy 6 CN",32,4,8,0
+"Participant 269_Participant 240 chi hap 1 C022_Analysis 1_video_20260707_195923_detailed.txt","ok","E22HA01-03","C22","Chinese","Genuine",0,"HA","HA","Happy 1 CN",42,5.25,8,0
+"Participant 270_Participant 241 chi hap 2 C022_Analysis 1_video_20260707_200014_detailed.txt","ok","E22HA01-05","C22","Chinese","Genuine",0,"HA","HA","Happy 1 CN",35,4.375,8,0
+"Participant 271_Participant 242 chi hap 3 C022_Analysis 1_video_20260707_200050_detailed.txt","ok","E22HA02-02","C22","Chinese","Genuine",0,"HA","HA","Happy 2 CN",64,8,8,0
+"Participant 272_Participant 243 chi hap 4 C022_Analysis 1_video_20260707_200124_detailed.txt","ok","E22HA03-02","C22","Chinese","Genuine",0,"HA","HA","Happy 3 CN",51,6.375,8,0
+"Participant 273_Participant 244 chi hap 5 C022_Analysis 1_video_20260707_200150_detailed.txt","ok","E22HA05-01","C22","Chinese","Genuine",0,"HA","HA","Happy 5 CN",40,5,8,0
+"Participant 274_Participant 245 chi hap 6 C022_Analysis 1_video_20260707_200303_detailed.txt","ok","E22HA07-02","C22","Chinese","Genuine",0,"HA","HA","Happy 7 CN",45,5.625,8,0
+"Participant 281_Participant 252 chi hap 1 C023_Analysis 1_video_20260707_200815_detailed.txt","ok","E23HA01-02","C23","Chinese","Genuine",0,"HA","HA","Happy 1 CN",31,3.875,8,0
+"Participant 282_Participant 253  chi hap 2 C023_Analysis 1_video_20260707_200851_detailed.txt","ok","E23HA02-03","C23","Chinese","Genuine",0,"HA","HA","Happy 2 CN",39,4.875,8,0
+"Participant 283_Participant 254  chi hap 3 C023_Analysis 1_video_20260707_200941_detailed.txt","ok","E23HA03-01","C23","Chinese","Genuine",0,"HA","HA","Happy 3 CN",50,6.25,8,0
+"Participant 284_Participant 255  chi hap 4 C023_Analysis 1_video_20260707_201012_detailed.txt","ok","E23HA04-03","C23","Chinese","Genuine",0,"HA","HA","Happy 4 CN",52,6.5,8,0
+"Participant 285_Participant 256  chi hap 5 C023_Analysis 1_video_20260707_201048_detailed.txt","ok","E23HA05-03","C23","Chinese","Genuine",0,"HA","HA","Happy 5 CN",24,3,8,0
+"Participant 286_Participant 257  chi hap 6 C023_Analysis 1_video_20260707_201121_detailed.txt","ok","E23HA07-03","C23","Chinese","Genuine",0,"HA","HA","Happy 7 CN",37,4.625,8,0
+"Participant 293_Participant 264 chi hap C024_Analysis 1_video_20260713_135756_detailed.txt","ok","E24HA01-02","C24","Chinese","Genuine",0,"HA","HA","Happy 1 CN",101,12.625,8,0
+"Participant 294_Participant 265 chi hap 2 C024_Analysis 1_video_20260713_141253_detailed.txt","ok","E24HA02-03","C24","Chinese","Genuine",0,"HA","HA","Happy 2 CN",51,6.375,8,0
+"Participant 295_Participant 266 chi hap 3 C024_Analysis 1_video_20260713_141334_detailed.txt","ok","E24HA03-04","C24","Chinese","Genuine",0,"HA","HA","Happy 3 CN",42,5.25,8,0
+"Participant 296_Participant 267 chi hap 4 C024_Analysis 1_video_20260713_141411_detailed.txt","ok","E24HA05-03","C24","Chinese","Genuine",0,"HA","HA","Happy 5 CN",29,3.625,8,0
+"Participant 297_Participant 268 chi hap 5 C024 _Analysis 1_video_20260713_141440_state.txt","state_log_only",,,,,,,,,,,,
+"Participant 298_Participant 269 chi hap 6 C024_Analysis 1_video_20260713_141618_detailed.txt","ok","E24HA07-02","C24","Chinese","Genuine",0,"HA","HA","Happy 7 CN",37,4.625,8,0
+"Participant 305_Participant 276 chi hap 1 C025_Analysis 1_video_20260713_142102_detailed.txt","ok","E25HA03-01","C25","Chinese","Genuine",0,"HA","HA","Happy 3 CN",43,5.375,8,0
+"Participant 306_Participant 277 chi hap 2 C025 _Analysis 1_video_20260713_142147_detailed.txt","ok","E25HA04-01","C25","Chinese","Genuine",0,"HA","HA","Happy 4 CN",87,10.875,8,0
+"Participant 307_Participant 278  chi hap 3 C025 _Analysis 1_video_20260713_142235_detailed.txt","ok","E25HA04-04","C25","Chinese","Genuine",0,"HA","HA","Happy 4 CN",38,4.75,8,0
+"Participant 308_Participant 279  chi hap 4 C025 _Analysis 1_video_20260713_142310_detailed.txt","ok","E25HA06-02","C25","Chinese","Genuine",0,"HA","HA","Happy 6 CN",45,5.625,8,0
+"Participant 309_Participant 280  chi hap 5 C025 _Analysis 1_video_20260713_142339_detailed.txt","ok","E25HA07-01","C25","Chinese","Genuine",0,"HA","HA","Happy 7 CN",53,6.625,8,0
+"Participant 310_Participant 281  chi hap 6 C025 _Analysis 1_video_20260713_142409_detailed.txt","ok","E25SA07-03","C25","Chinese",,1,"HA","SA","Happy 7 CN",77,9.625,8,0
+"Participant 317_Participant 288   chi hap1 C026_Analysis 1_video_20260713_144503_detailed.txt","ok","E26HA01-01","C26","Chinese","Genuine",0,"HA","HA","Happy 1 CN",48,6,8,0
+"Participant 318_Participant 289   chi  hap 2 C026 _Analysis 1_video_20260713_144556_detailed.txt","ok","E26HA02-02","C26","Chinese","Genuine",0,"HA","HA","Happy 2 CN",29,3.625,8,0
+"Participant 319_Participant 290  chi hap 3 C026 _Analysis 1_video_20260713_144647_detailed.txt","ok","E26HA02-04","C26","Chinese","Genuine",0,"HA","HA","Happy 2 CN",40,5,8,0
+"Participant 320_Participant 291 chi hap 4 C026 _Analysis 1_video_20260713_144737_detailed.txt","ok","E26HA03-04","C26","Chinese","Genuine",0,"HA","HA","Happy 3 CN",59,7.375,8,0
+"Participant 321_Participant 292 chi hap 5 C026 _Analysis 1_video_20260713_144822_detailed.txt","ok","E26HA05-04","C26","Chinese","Genuine",0,"HA","HA","Happy 5 CN",33,4.125,8,0
+"Participant 322_Participant 293 chi hap 6 C026 _Analysis 1_video_20260713_144859_detailed.txt","ok","E26HA06-01","C26","Chinese","Genuine",0,"HA","HA","Happy 6 CN",46,5.75,8,0
+"Participant 329_Participant 300 chi hap 1 C027_Analysis 1_video_20260713_145330_detailed.txt","ok","E27HA01-01","C27","Chinese","Genuine",0,"HA","HA","Happy 1 CN",23,2.875,8,0
+"Participant 330_Participant 301 chi hap 2 C027_Analysis 1_video_20260713_145406_detailed.txt","ok","E27HA02-07","C27","Chinese","Genuine",0,"HA","HA","Happy 2 CN",33,4.125,8,0
+"Participant 331_Participant 302 chi hap 3 C027_Analysis 1_video_20260713_145432_detailed.txt","ok","E27HA03-02","C27","Chinese","Genuine",0,"HA","HA","Happy 3 CN",60,7.5,8,0
+"Participant 332_Participant 303 chi hap 4 C027_Analysis 1_video_20260713_145500_detailed.txt","ok","E27HA04-02","C27","Chinese","Genuine",0,"HA","HA","Happy 4 CN",59,7.375,8,0
+"Participant 333_Participant 304 chi hap 5 C027_Analysis 1_video_20260713_145526_detailed.txt","ok","E27HA05-02","C27","Chinese","Genuine",0,"HA","HA","Happy 5 CN",21,2.625,8,0
+"Participant 334_Participant 305 chi hap 6 C027_Analysis 1_video_20260713_145551_detailed.txt","ok","E27HA07-01","C27","Chinese","Genuine",0,"HA","HA","Happy 7 CN",30,3.75,8,0
+"Participant 341_Participant 312 chi hap 1 C028_Analysis 1_video_20260713_150016_detailed.txt","ok","E28HA01-01","C28","Chinese","Genuine",0,"HA","HA","Happy 1 CN",72,9,8,0
+"Participant 342_Participant 313 chi hap 2 C028_Analysis 1_video_20260713_150100_detailed.txt","ok","E28HA02-03","C28","Chinese","Genuine",0,"HA","HA","Happy 2 CN",69,8.625,8,0
+"Participant 343_Participant 314 chi hap 3 C028_Analysis 1_video_20260713_150137_detailed.txt","ok","E28HA03-02","C28","Chinese","Genuine",0,"HA","HA","Happy 3 CN",57,7.125,8,0
+"Participant 344_Participant 315 chi hap 4 C028_Analysis 1_video_20260713_150212_detailed.txt","ok","E28HA06-04","C28","Chinese","Genuine",0,"HA","HA","Happy 6 CN",33,4.125,8,0
+"Participant 345_Participant 316 chi hap 5 C028_Analysis 1_video_20260713_150238_detailed.txt","ok","E28HA07-02","C28","Chinese","Genuine",0,"HA","HA","Happy 7 CN",69,8.625,8,0
+"Participant 346_Participant 317 chi hap 6 C028_Analysis 1_video_20260713_150305_detailed.txt","ok","E28HA07-04","C28","Chinese","Genuine",0,"HA","HA","Happy 7 CN",55,6.875,8,0
+"Participant 353_Participant 324 chi hap 1 C030_Analysis 1_video_20260713_150729_detailed.txt","ok","E30HA01-04","C30","Chinese","Genuine",0,"HA","HA","Happy 1 CN",67,8.375,8,0
+"Participant 354_Participant 325 chi hap 2 C030 _Analysis 1_video_20260713_150909_detailed.txt","ok","E30HA02-01","C30","Chinese","Genuine",0,"HA","HA","Happy 2 CN",42,5.25,8,0
+"Participant 355_Participant 326 chi hap 3 C030 _Analysis 1_video_20260713_150933_detailed.txt","ok","E30HA03-03","C30","Chinese","Genuine",0,"HA","HA","Happy 3 CN",45,5.625,8,0
+"Participant 356_Participant 327 chi hap 4 C030 _Analysis 1_video_20260713_151438_detailed.txt","ok","E30HA04-04","C30","Chinese","Genuine",0,"HA","HA","Happy 4 CN",25,3.125,8,0
+"Participant 357_Participant 328 chi hap 5 C030 _Analysis 1_video_20260713_151550_detailed.txt","ok","E30HA05-02","C30","Chinese","Genuine",0,"HA","HA","Happy 5 CN",28,3.5,8,0
+"Participant 358_Participant 329  chi hap 6 C030 _Analysis 1_video_20260713_151635_detailed.txt","ok","E30HA07-01","C30","Chinese","Genuine",0,"HA","HA","Happy 7 CN",44,5.5,8,0
+"Participant 365_Participant 336 chi hap 1 C031_Analysis 1_video_20260713_152030_state.txt","state_log_only",,,,,,,,,,,,
+"Participant 366_Participant 337 chi hap 2 C031_Analysis 1_video_20260713_152057_state.txt","state_log_only",,,,,,,,,,,,
+"Participant 367_Participant 338 chi hap 3 C031_Analysis 1_video_20260713_152125_state.txt","state_log_only",,,,,,,,,,,,
+"Participant 368_Participant 339 chi hap 4 C031_Analysis 1_video_20260713_152210_state.txt","state_log_only",,,,,,,,,,,,
+"Participant 369_Participant 340 chi hap 5 C031_Analysis 1_video_20260713_152242_state.txt","state_log_only",,,,,,,,,,,,
+"Participant 370_Participant 341 chi hap 6 C031_Analysis 1_video_20260713_152308_state.txt","state_log_only",,,,,,,,,,,,
+"Participant 377_Participant 348 chi hap 1 C032_Analysis 1_video_20260713_152803_detailed.txt","ok","E32HA01-02","C32","Chinese","Genuine",0,"HA","HA","Happy 1 CN",36,4.5,8,0
+"Participant 378_Participant 349 chi hap 2 C032_Analysis 1_video_20260713_152853_detailed.txt","ok","E32HA02-03","C32","Chinese","Genuine",0,"HA","HA","Happy 2 CN",74,9.25,8,0
+"Participant 379_Participant 350 chi hap 3 C032_Analysis 1_video_20260713_152917_detailed.txt","ok","E32HA03-03","C32","Chinese","Genuine",0,"HA","HA","Happy 3 CN",36,4.5,8,0
+"Participant 380_Participant 351 chi hap 4 C032_Analysis 1_video_20260713_152942_detailed.txt","ok","E32HA04-01","C32","Chinese","Genuine",0,"HA","HA","Happy 4 CN",45,5.625,8,0
+"Participant 381_Participant 352 chi hap 5 C032_Analysis 1_video_20260713_153037_detailed.txt","ok","E32HA05-02","C32","Chinese","Genuine",0,"HA","HA","Happy 5 CN",61,7.625,8,0
+"Participant 383_Participant 354 chi sad 1 C032_Analysis 1_video_20260713_153135_detailed.txt","ok","E32SA02-01","C32","Chinese","Fake",0,"SA","SA","Sad 2 CN",61,7.625,8,0

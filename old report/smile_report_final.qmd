@@ -1,0 +1,978 @@
+---
+title: "Discriminating Genuine from Performed Smiles Using Automated Facial Action Coding"
+subtitle: "Statistical Analysis Plan and pilot data audit, submitted for approval prior to analysis of the full dataset"
+author:
+  - name: "Delphine Dang"
+    affiliation: "N/A"
+    note: "Prepared with Dr Jie Kang · For approval by Prof Ted Ruffman, Department of Psychology, University of Otago"
+date: today
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-location: left
+    number-sections: true
+    theme: cosmo
+    code-fold: true
+    code-tools: true
+    fig-align: center
+    fig-cap-location: bottom
+    embed-resources: true
+editor: 
+  markdown: 
+    wrap: 72
+---
+```{=html}
+<style>
+/* ---- Report styling (single-file, no external SCSS) ---- */
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
+body { font-family: "Source Sans 3", -apple-system, sans-serif; color: #1F2937; line-height: 1.7; }
+h1, h2, h3, h4 { font-family: "Source Serif 4", Georgia, serif; font-weight: 700; letter-spacing: -0.01em; color: #1E3A8A; }
+h1:not(.title) { margin-top: 2.4rem; padding-bottom: 0.4rem; border-bottom: 2px solid #1E3A8A; }
+h2 { margin-top: 1.8rem; color: #1E40AF; }
+h3 { margin-top: 1.4rem; color: #2952c8; font-weight: 600; }
+.header-section-number { color: #D97706; font-weight: 700; margin-right: 0.3rem; }
+
+#title-block-header {
+  margin-bottom: 2.5rem; padding: 2.4rem; border-radius: 14px;
+  background: linear-gradient(135deg, #1E3A8A 0%, #1E40AF 55%, #312E81 100%);
+  color: #EFF6FF;
+}
+#title-block-header .title { color: #fff; font-weight: 700; }
+#title-block-header .subtitle, #title-block-header .quarto-title-meta, #title-block-header a { color: #DBEAFE; }
+
+a { color: #1E40AF; text-decoration: none; border-bottom: 1px solid rgba(30,64,175,.25); }
+a:hover { color: #D97706; border-bottom-color: #D97706; }
+
+nav[role="doc-toc"] a { border-bottom: none; color: #475569; font-size: .9rem; }
+nav[role="doc-toc"] .active { color: #1E3A8A !important; font-weight: 600; border-left: 2px solid #D97706; padding-left: .5rem; }
+
+table { font-size: .9rem; border-collapse: collapse; margin: 1.5rem auto; }
+thead th { background: #1E3A8A; color: #fff; font-weight: 600; padding: .5rem .75rem; }
+tbody td { padding: .45rem .75rem; border-bottom: 1px solid #E5E7EB; }
+tbody tr:nth-child(even) { background: #F8FAFC; }
+
+figure img { border: 1px solid #E5E7EB; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 4px 12px rgba(0,0,0,.04); }
+figcaption { font-size: .85rem; color: #6B7280; text-align: center; margin-top: .6rem; font-style: italic; }
+
+code { background: #F1F5F9; color: #BE123C; padding: .1rem .35rem; border-radius: 4px; }
+blockquote { border-left: 3px solid #D97706; background: #F8FAFC; padding: .8rem 1.2rem; }
+p strong:first-child { color: #1E3A8A; }
+main { max-width: 860px; }
+
+
+/* ---- Prominent Code-tools button (top-right "</> Code" menu) ---- */
+#quarto-code-tools-menu, .code-tools-button, a.code-tools-button,
+button.code-tools-button, #quarto-code-tools-source,
+.quarto-title-tools, .quarto-code-tools-button {
+  display: inline-flex !important; align-items: center;
+  background: #D97706 !important; color: #ffffff !important;
+  border: 2px solid #B45309 !important; border-radius: 8px !important;
+  padding: 0.4rem 0.9rem !important; font-weight: 700 !important;
+  font-family: "Source Sans 3", sans-serif !important; font-size: 0.95rem !important;
+  text-decoration: none !important; box-shadow: 0 2px 6px rgba(217,119,6,.35) !important;
+  transition: background .15s ease, transform .15s ease; z-index: 1000;
+}
+#quarto-code-tools-menu:hover, .code-tools-button:hover,
+a.code-tools-button:hover, button.code-tools-button:hover,
+#quarto-code-tools-source:hover, .quarto-code-tools-button:hover {
+  background: #B45309 !important; color: #fff !important;
+  transform: translateY(-1px); box-shadow: 0 4px 10px rgba(217,119,6,.45) !important;
+}
+.code-tools-button .bi, #quarto-code-tools-menu .bi { color: #fff !important; }
+
+/* ---- Code-tools dropdown menu (Show All / Hide All Code / View Source) ---- */
+/* The menu that opens on click: black text on a white background */
+.quarto-code-tools-button + .dropdown-menu,
+#quarto-code-tools-menu + .dropdown-menu,
+.code-tools-button + .dropdown-menu,
+ul.dropdown-menu[aria-labelledby*="code-tools"],
+.dropdown-menu.show {
+  background-color: #ffffff !important;
+  border: 1px solid #CBD5E1 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,.12) !important;
+  padding: 0.25rem 0 !important;
+}
+.quarto-code-tools-button + .dropdown-menu .dropdown-item,
+#quarto-code-tools-menu + .dropdown-menu .dropdown-item,
+.code-tools-button + .dropdown-menu .dropdown-item,
+ul.dropdown-menu[aria-labelledby*="code-tools"] .dropdown-item,
+.dropdown-menu.show .dropdown-item {
+  color: #000000 !important;
+  background-color: #ffffff !important;
+  font-family: "Source Sans 3", sans-serif !important;
+  font-weight: 500 !important;
+  padding: 0.4rem 1rem !important;
+}
+/* Hover/focus state: keep text black, light grey background for feedback */
+.quarto-code-tools-button + .dropdown-menu .dropdown-item:hover,
+.quarto-code-tools-button + .dropdown-menu .dropdown-item:focus,
+#quarto-code-tools-menu + .dropdown-menu .dropdown-item:hover,
+#quarto-code-tools-menu + .dropdown-menu .dropdown-item:focus,
+.code-tools-button + .dropdown-menu .dropdown-item:hover,
+.code-tools-button + .dropdown-menu .dropdown-item:focus,
+ul.dropdown-menu[aria-labelledby*="code-tools"] .dropdown-item:hover,
+ul.dropdown-menu[aria-labelledby*="code-tools"] .dropdown-item:focus,
+.dropdown-menu.show .dropdown-item:hover,
+.dropdown-menu.show .dropdown-item:focus {
+  color: #000000 !important;
+  background-color: #F1F5F9 !important;
+}
+</style>
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  fig.align = "center"
+)
+library(knitr)
+library(lme4)
+
+OUT <- "results_outputs"
+
+man    <- read.csv(file.path(OUT, "01_file_manifest.csv"),     stringsAsFactors = FALSE)
+clip   <- read.csv(file.path(OUT, "03_clip_summary_long.csv"), stringsAsFactors = FALSE)
+adat   <- read.csv(file.path(OUT, "07_analysis_dataset.csv"),  stringsAsFactors = FALSE)
+pow    <- read.csv(file.path(OUT, "12_power_simulation.csv"),  stringsAsFactors = FALSE)
+frames <- read.csv(file.path(OUT, "02_frames_wide.csv"),       stringsAsFactors = FALSE)
+
+ok      <- man[man$status == "ok", ]
+gen     <- adat[adat$smile_type == "Genuine", ]
+n_files <- nrow(man); n_ok <- nrow(ok); n_state <- sum(man$status == "state_log_only")
+
+au12 <- clip[clip$channel == "AU12", ]
+au06 <- clip[clip$channel == "AU06", ]
+cens_end_12   <- mean(au12$censored_end)
+cens_start_12 <- mean(au12$censored_start)
+cens_end_06   <- mean(au06$censored_end)
+
+CONFIRM    <- c("AU06_pk", "AU12_pk", "duchenne_prop", "Happy_pk")
+null_clips <- gen[is.na(gen$duchenne_prop), ]
+n_null     <- nrow(null_clips)
+```
+
+::: {.callout-note appearance="simple" icon="false"}
+**📋 Document status**, This is a **Statistical Analysis Plan (SAP)**: the
+analysis is specified here *before* the full dataset is analysed.
+:::
+::: {.callout-note appearance="simple"}
+**Reproducible code.** This report renders from small committed summary files
+in the folder `results_outputs`; the raw data is not needed. Every statistic, table and figure
+below, including all plots, is rebuilt live from those summaries
+when the document is rendered. Full code, data summaries:
+<https://github.com/delphinedang/Smile_Project>. Session information is in the
+Appendix.
+:::
+
+| Field | Detail |
+|------------------|------------------------------------------------------|
+| Version | final draft, awaiting approval |
+| Prepared by | Delphine Dang, with Dr Jie Kang |
+| Approver | Prof Ted Ruffman, Department of Psychology, University of Otago |
+| Locked on approval | Confirmatory outcomes (@sec-outcomes) · Model specification (@sec-model) · Exclusion rules (@sec-exclusions) |
+
+: Document control {#tbl-control}
+
+# Executive Summary {#sec-exec-summary}
+
+Prof Ruffman's question was which analysis to use. The short answer is a **linear
+mixed model**, not repeated-measures ANOVA, and the reason is visible in
+his own pilot data: smiles from the same person are so alike that the 93
+usable genuine smiles carry roughly the statistical weight of **23
+independent observations**. Person-level averaging, which
+repeated-measures ANOVA would require, discards exactly the structure
+that matters.
+
+Auditing the 108 files also turned up five issues that need fixing at
+source rather than in the analysis. The most consequential is censoring:
+**AU12 is still active in the final frame of
+`r sprintf("%.0f%%", 100*cens_end_12)` of clips**, because each clip was
+cut tightly around its smile. Onset, offset and true duration are
+therefore not recoverable from the current exports, but they would be
+recovered almost entirely by re-cutting the clips with a couple of
+seconds of padding, if the original recordings survive.
+
+The audit also found **`r n_null` clips labelled as genuine smiles that
+contain no detectable smile at all** (@sec-exclusions), which requires an
+exclusion rule agreed in advance.
+
+Finally, simulating the design at parameters taken from the pilot data,
+the genuine-versus-performed main effect is comfortably detectable. The
+**culture × smile-type interaction, the theoretically interesting
+question, is not**, at any plausible sample size.
+
+| Figure | What it means |
+|---------------|--------------------------------------------------------|
+| **23** | Effective independent observations carried by 93 genuine smiles, after accounting for within-person similarity |
+| **0.64** | Between-smiler ICC on AU12 peak: people differ far more than their individual smiles do |
+| **`r sprintf("%.0f%%", 100*cens_end_12)`** | Of clips have AU12 still active in the final frame; duration is right-censored, not measured |
+| **31%** | Power for the culture interaction at 30 smilers per culture, the study's binding limitation |
+
+: Key figures from the pilot audit {#tbl-key}
+
+::: {.callout-important appearance="simple" icon="false"}
+**Recommendation.** Approve the mixed-model specification and the four
+confirmatory outcomes in @sec-outcomes. Before the remaining data is
+exported, address the five source-level issues in @sec-audit,
+particularly the clip re-cutting, which would convert three currently
+unusable measures into the study's most discriminating ones. Frame the
+cultural interaction as *exploratory* from the outset rather than as a
+confirmatory test likely to fail.
+:::
+
+# Introduction {#sec-intro}
+
+Whether a smile is felt or performed is not always visible to an
+observer, but it may still be measurable. Prof Ruffman's study had people watch
+humorous videos, producing spontaneous smiles, and sad videos, during
+which they were instructed to smile anyway. The resulting videos were
+processed through FaceReader, which returns, for every frame, eight
+emotion probabilities and intensity grades for twenty facial muscles
+(action units).
+
+The analytic question is whether genuine and performed smiles separate on
+those objective measures, and whether that separation differs by the
+smiler's cultural background. The second half matters theoretically. Prof Ruffman's
+account of the emotion-recognition literature is that in a collectivist
+culture people mask felt emotion with a smile, so observers get less
+exposure to genuine expression. That predicts something sharper than
+"genuine and performed smiles differ": it predicts that the *objective
+separability* of the two differs by culture.
+
+This document specifies how that will be tested, and reports what an audit
+of the 108 pilot files says about whether the data can support it.
+
+## Research questions {#sec-questions}
+
+| # | Question | How it is tested |
+|-----|---------------------------|---------------------------------|
+| **Q1** *(primary)* | Do genuine and performed smiles differ on objective facial measures, and which action units carry the difference? | Mixed-model contrast of smile type on four pre-specified outcomes; FDR-corrected screen across remaining action units |
+| **Q2** *(primary, theoretical)* | Are Chinese performed smiles objectively harder to separate from genuine ones than New Zealand European performed smiles? | Culture × smile-type interaction. See @sec-power, likely underpowered; proposed as exploratory |
+| **Q3** *(optional extension)* | Do the FaceReader measures predict how accurately human judges classified the same clips? | Clip-level accuracy regressed on the confirmatory measures. Requires no new data, the judgement data already exists |
+
+: Research questions and the analysis addressing each {#tbl-rq}
+
+Q3 is worth flagging because the human judgement data already exists.
+Linking FaceReader measures to per-clip human accuracy asks whether people
+are actually using the signal that is objectively present, the natural
+bridge between Zoe's paper and this one.
+
+# Methodology {#sec-methodology}
+
+## Data structure {#sec-structure}
+
+The unit of analysis is **one smile episode**, not one person.
+
+```         
+culture (between-smiler)
+  └── smiler (random)
+        └── smile episode  ← unit of analysis
+              ├── smile type: genuine / performed (within-smiler)
+              └── stimulus video (random)
+```
+
+Three features of this structure rule out the conventional analysis:
+
+1.  **Unbalanced.** People produced different numbers of smiles, 3 to 6
+    in the pilot, and some produced none of a given type.
+2.  **Nested.** Several smiles come from the same person, and are not
+    independent.
+3.  **Crossed.** The same stimulus videos recur across people.
+
+## Model specification {#sec-model}
+
+```         
+outcome ~ smile_type * culture + (1 | smiler_id) + (1 | stimulus)
+```
+
+Estimation by REML; inference on `smile_type` and the interaction by
+likelihood ratio test against the corresponding reduced model fitted by
+ML. Clip duration enters as a covariate for cumulative outcomes only
+(@sec-coding).
+
+### Why not repeated-measures ANOVA {#sec-why-not-anova}
+
+Repeated-measures ANOVA would be the natural choice in SPSS, and it does
+not work here for three reasons.
+
+**Unequal smile counts.** It needs a complete rectangular design. The
+standard workaround, average each person's smiles into a single score,
+treats a person contributing one smile as exactly as precise as a person
+contributing eight, and discards the within-person variability that is
+itself informative.
+
+**Missing cells.** Anyone producing no performed smiles is dropped
+entirely by listwise deletion. A mixed model retains their genuine
+smiles.
+
+**Unmodelled stimulus variance.** Ignoring the fact that some videos are
+funnier than others inflates the Type I error rate for the effects of
+interest.
+
+### Variance components justify the random effects {#sec-icc}
+
+This is not a theoretical concern. Fitting intercept-only models to the
+93 genuine smiles gives the variance components below; full estimates
+including standard deviations are in @sec-a2.
+
+```{r tbl-icc}
+#| tbl-cap: "Variance decomposition on genuine smiles only (n = 93 clips, 16 smilers, 7 stimuli). Each cell comes from a separate intercept-only mixed model. ICC is the proportion of variance attributable to the grouping factor."
+ic <- function(m) { v <- as.data.frame(VarCorr(m)); v$vcov[1] / sum(v$vcov) }
+vc_tab <- function(y) {
+  f <- gen[!is.na(gen[[y]]), ]
+  data.frame(
+    Outcome        = y,
+    `ICC smiler`   = round(ic(lmer(as.formula(paste(y, "~ 1 + (1|smiler_id)")), f)), 3),
+    `ICC stimulus` = round(ic(lmer(as.formula(paste(y, "~ 1 + (1|stimulus)")),  f)), 3),
+    check.names = FALSE)
+}
+kable(do.call(rbind, lapply(
+  c("AU12_pk", "AU06_pk", "duchenne_prop", "Happy_pk", "AU12_prop"), vc_tab)))
+```
+
+Two results, pulling in opposite directions.
+
+**The smiler random effect is essential.** Between-smiler ICCs run from
+0.44 to 0.69. On AU12 peak, roughly **64% of all variance sits between
+people rather than between their individual smiles**. People differ
+enormously in expressiveness, and ignoring that would badly inflate
+significance.
+
+It also has a direct consequence for sample size. With an ICC of 0.64 and
+about 5.8 smiles per person, the design effect is roughly 4.1, so the 93
+genuine smiles carry about the information of **23 independent
+observations**. *Smile count is not sample size; smiler count is.*
+
+**The stimulus random effect earns almost nothing.** Stimulus ICCs are
+0.00 to 0.05. The videos behave more alike than expected.
+
+::: {.callout-note appearance="simple" icon="false"}
+**Practical consequence for SPSS.** Crossed random effects are the one
+thing `MIXED` handles awkwardly, needing two `/RANDOM` subcommands and
+often failing to converge. Since stimulus variance is close to zero,
+dropping that term is defensible on evidence rather than convenience,
+which makes the SPSS route straightforward. Recommendation: retain it in
+the primary R model, and if SPSS will not converge, drop it and cite this
+table. These estimates come from 7 stimuli and genuine smiles only, so
+they should be re-checked on the full data.
+:::
+
+## Outcome measures {#sec-outcomes}
+
+### Confirmatory set, pre-specified, uncorrected {#sec-confirmatory}
+
+Four measures, chosen on theory rather than on inspection of results.
+**This is the decision most in need of sign-off before the full data
+arrives.**
+
+| Measure | Variable | Rationale |
+|------------------|------------------|------------------------------------|
+| Cheek raiser, peak | `AU06_pk` | The Duchenne marker; held to be hard to produce voluntarily |
+| Lip corner puller, peak | `AU12_pk` | The smile itself. Expected in **both** types, a manipulation check |
+| Duchenne co-activation | `duchenne_prop` | Proportion of smile-active time that also had cheek raise |
+| Happiness, peak | `Happy_pk` | FaceReader's own composite judgement |
+
+: Pre-specified confirmatory outcomes {#tbl-confirm}
+
+`duchenne_prop` deserves a note. Peak AU06 and peak AU12 can both be high
+while never occurring *at the same moment*, which is not a Duchenne smile
+in any meaningful sense. Conditioning on AU12 being active captures the
+co-occurrence the theory is actually about, and being a proportion it is
+unaffected by the unequal clip lengths. In simulation it was the most
+sensitive of the four.
+
+::: {.callout-important appearance="simple" icon="false"}
+**One caveat on this set.** These four measures are strongly
+intercorrelated in the pilot data, `AU12_pk` and `Happy_pk` correlate at
+*r* = 0.85 (@sec-a3). They are close to the same measurement, so
+`Happy_pk` adds little beyond `AU12_pk`. Ted may prefer to substitute a
+fourth measure carrying independent information, a temporal one such as
+smile smoothness would be the obvious candidate, though that depends on
+the re-cutting decision in @sec-censoring. Flagged for his call.
+:::
+
+### Exploratory set, FDR corrected {#sec-exploratory}
+
+All remaining action units (peak and proportion-active),
+Benjamini–Hochberg at *q* = .05, reported as hypothesis-generating.
+
+::: {.callout-important appearance="simple" icon="false"}
+**Why the split must be fixed now.** Across 20 action units, 8 emotion
+channels and roughly 10 measures each, there are close to 300 possible
+tests. If the confirmatory set is chosen after seeing results, almost any
+pattern can be made to look significant. Agreeing these four in writing,
+in advance, lets the paper state that the plan was pre-specified, which
+is worth a great deal at review and costs nothing today.
+:::
+
+# Pilot Data Audit {#sec-audit}
+
+```{r audit-counts, include=FALSE}
+n_conflict <- sum(man$label_conflict == 1, na.rm = TRUE)
+n_fitfail  <- sum(ok$n_fitfail_cells, na.rm = TRUE)
+fps        <- unique(ok$frame_rate)[1]
+```
+
+Of the `r n_files` files received, `r n_ok` are usable. The five issues
+below are all better fixed before the remaining exports are produced than
+worked around afterwards. Full listings are in @sec-a12.
+
+## Censoring, and the case for re-cutting the clips {#sec-censoring}
+
+Prof Ruffman's instinct in the original email was right, and the pilot data
+quantifies how right.
+
+```{r fig-censoring}
+#| fig-cap: "Right-censoring by action unit: the percentage of clips in which the unit is still active in the final frame. Above the dashed line, recorded durations are lower bounds rather than measurements. AU12 and AU06, the two units the hypotheses depend on, are the worst affected."
+#| fig-height: 6
+aus   <- grep("^AU[0-9]+_cens1$", names(adat), value = TRUE)
+rates <- sort(sapply(aus, function(a) mean(adat[[a]], na.rm = TRUE)))
+par(mar = c(4.5, 7, 1.5, 2))
+cols <- ifelse(names(rates) %in% c("AU12_cens1", "AU06_cens1"), "#D97706", "#1E3A8A")
+barplot(rates * 100, horiz = TRUE, las = 1, xlim = c(0, 100), border = NA,
+        names.arg = sub("_cens1", "", names(rates)), cex.names = .75,
+        xlab = "% of clips still active in final frame", col = cols)
+abline(v = 50, lty = 2, col = "#BE123C")
+```
+
+AU12 is already active in the first frame of
+`r sprintf("%.0f%%", 100*cens_start_12)` of clips and still active in the
+last frame of `r sprintf("%.0f%%", 100*cens_end_12)`. AU06 is
+right-censored in `r sprintf("%.0f%%", 100*cens_end_06)`.
+
+So for roughly seven clips in ten, the recorded AU12 duration is a **lower
+bound on the true duration, not a measurement of it**. Comparing mean
+durations under that much censoring is uninterpretable, and if censoring
+rates differ between genuine and performed smiles, actively misleading
+rather than merely noisy.
+
+The cause is visible in the clip codes: each clip was cut tightly around
+its smile, so recording begins after onset and ends before offset. The
+cost is concrete, smile rise rate can only be computed for the
+`r sum(!is.na(gen$au12_rise_rate))` of `r nrow(gen)` genuine clips where
+onset was actually observed (@sec-a6).
+
+::: {.callout-important appearance="simple" icon="false"}
+**Highest-value action available.** If the original full-length
+recordings still exist, re-cutting each clip with roughly two seconds of
+padding either side would recover onset time, offset time and true
+duration. Temporal dynamics are among the more reliable discriminators of
+posed from spontaneous smiles in the existing literature, so this
+converts three unusable measures into potentially the study's strongest
+ones.
+:::
+
+Failing that, the fallback is survival analysis treating duration as
+right-censored (@sec-a10). Defensible and publishable, but a workaround.
+In the meantime `prop_active`, the proportion of the observed clip
+during which a unit was active, is the recommended duration-like
+outcome: scale-free, and honest about being conditional on the
+observation window.
+
+## Frame rate is 8 fps, not 30 {#sec-fps}
+
+Every detailed export reports `r fps` fps, against the 30 fps described in
+the original email. Something in the `_converted_` step appears to have
+downsampled them. At 8 fps all timing is quantised to 125 ms. If 30 fps
+sources exist, re-exporting would improve temporal resolution roughly
+fourfold, and it matters most for exactly the onset and rise-rate
+measures above.
+
+## Thirteen files were exported in the wrong format {#sec-statelogs}
+
+These are FaceReader *state* logs, containing only dominant-expression
+transitions, no emotion values, no action units. They cover all of C15,
+all of C31, and one clip from C24, and need re-exporting as detailed
+logs. Without them two smilers are lost entirely, which matters more than
+it sounds given that smiler count is the effective sample size (@sec-icc).
+
+## One clip contradicts itself {#sec-conflict}
+
+`r n_conflict` clip, `E25SA07-03`, is coded SA (sad stimulus) but its
+source video is `Happy 7 CN`. One of the two labels is a typo. It is
+currently excluded pending clarification. Separately, `r n_fitfail`
+individual cells across the dataset are `FIT_FAILED`, all within a single
+file; these are recoded to `NA`, never to zero.
+
+## Nine genuine clips contain no detectable smile {#sec-exclusions}
+
+The most consequential finding of the audit, because it requires a
+decision rule fixed in advance.
+
+```{r tbl-null}
+#| tbl-cap: "Genuine-labelled clips in which AU12 (Lip Corner Puller) never activates in any frame. Peak values are on the 0–5 ordinal scale; Happy is a 0–1 probability."
+nc <- null_clips[, c("clip_id", "smiler_id", "stimulus", "clip_duration_s",
+                     "AU12_pk", "AU06_pk", "Happy_pk")]
+nc$Happy_pk <- round(nc$Happy_pk, 3)
+names(nc) <- c("Clip", "Smiler", "Stimulus", "Duration (s)",
+               "AU12 peak", "AU06 peak", "Happy peak")
+kable(nc, row.names = FALSE)
+```
+
+```{r null-compare, include=FALSE}
+good  <- gen[!is.na(gen$duchenne_prop), ]
+n_aus <- function(ids) {
+  s <- clip[clip$clip_id %in% ids & clip$channel_type == "action_unit", ]
+  mean(tapply(s$peak, s$clip_id, function(x) sum(x > 0, na.rm = TRUE)))
+}
+au_null <- n_aus(null_clips$clip_id); au_good <- n_aus(good$clip_id)
+hp_null <- mean(null_clips$Happy_pk); hp_good <- mean(good$Happy_pk)
+```
+
+These are **not tracking failures**. All `r n_null` clips have zero
+`FIT_FAILED` cells, so FaceReader tracked the face successfully
+throughout, and other action units do activate. But they carry an average
+of only `r sprintf("%.1f", au_null)` active action units against
+`r sprintf("%.1f", au_good)` in the remaining genuine clips, and mean peak
+happiness of `r sprintf("%.2f", hp_null)` against
+`r sprintf("%.2f", hp_good)`. None exceeds a happiness probability of 0.5
+at any point.
+
+The most likely explanation is mis-segmentation: the clip boundaries do
+not contain the smile, or the person did not smile at that stimulus and a
+segment was extracted regardless. They cluster in four smilers, which is
+consistent with either explanation.
+
+::: {.callout-important appearance="simple" icon="false"}
+**Why this needs deciding now.** Retained, these clips enter the analysis
+as genuine smiles carrying no smile signal, pulling the genuine mean down,
+inflating within-group variance and reducing power for the very contrast
+the study exists to test. Excluded after the results are seen, the
+exclusion is unfalsifiable.
+
+**Proposed rule, for approval:** exclude any clip in which AU12 never
+reaches grade A in any frame, on the grounds that a clip containing no
+lip-corner movement cannot be a smile of either kind. Applied blind to
+condition, stated in the methods, and reported with a sensitivity
+analysis showing results with and without. If Ted prefers a different
+threshold, now is the time to set it.
+:::
+
+# Statistical Power {#sec-power}
+
+Simulation using variance components estimated from the pilot data
+(between-smiler SD 1.04, residual SD 0.885), with 3–6 smiles per person
+per type and the interaction set at half the main effect. Method and full
+grid in @sec-a7.
+
+```{r tbl-power}
+#| tbl-cap: "Simulated power at α = .05 for a moderate effect (d = 0.5), 500 replicates. Main effect = genuine vs performed; interaction = culture × smile type."
+pt <- pow[pow$effect_d == 0.5, c("smilers_per_culture", "power_main", "power_interaction")]
+names(pt) <- c("Smilers per culture", "Power: main effect", "Power: interaction")
+kable(pt, row.names = FALSE)
+```
+
+The two columns tell very different stories.
+
+**The main effect is well served.** At a moderate effect (*d* = 0.5), 20
+smilers per culture already gives 94% power, and 30 gives 99%. If genuine
+and performed smiles differ at all on these measures, this design will
+find it.
+
+**The interaction is not.** At that same moderate effect, 30 smilers per
+culture yields only **31% power**. Even at a large effect (*d* = 0.8), 30
+smilers reaches 61%. The reason is structural: a main effect that
+operates *within* each person is tested efficiently, whereas asking
+whether that within-person effect *differs between cultures* is a
+between-person comparison, and between-person is precisely where this
+design is thinnest.
+
+::: {.callout-important appearance="simple" icon="false"}
+**Consequence for the paper.** Q2 is the theoretically interesting
+question, and on present numbers it is unlikely to reach significance
+even if the effect is real. A null result would then be ambiguous,
+genuinely absent, or simply not detectable. Two options: recruit
+substantially more smilers per culture, or pre-register the interaction
+as **exploratory**, report the effect size with confidence intervals, and
+interpret the direction rather than the *p*-value. The second is honest,
+costs nothing, and is far preferable to a confirmatory test that was
+never going to work.
+
+**Question for Ted:** how many smilers are there in total across all four
+cells? This table is the main reason it matters.
+:::
+
+# Current Status {#sec-status}
+
+```{r tbl-status}
+#| tbl-cap: "Pilot data coverage. The genuine-versus-performed contrast cannot be tested until the remaining cells arrive."
+lab <- ifelse(is.na(ok$smile_type) | ok$smile_type == "", "Unresolved", ok$smile_type)
+st  <- as.data.frame.matrix(table(ok$culture, lab))
+st  <- cbind(Culture = rownames(st), st); rownames(st) <- NULL
+kable(st)
+```
+
+The extraction and analysis pipeline is built, validated and running. Of
+the `r n_ok` usable clips, `r nrow(gen)` are genuine and one is performed
+— so no contrast is testable yet, and no amount of analysis will change
+that.
+
+The analysis script detects this and runs in **pilot mode**: derived
+variables, descriptives, censoring audit and figures, with all
+inferential models reported as blocked. When the remaining three cells
+arrive it switches to full mode with no edits. It was validated against a
+simulated complete dataset with a known effect injected into AU06,
+recovering that effect (Hedges' *g* = 1.23) and the derived Duchenne
+measure (*g* = 1.47) while correctly finding nothing on AU12 or `Happy`,
+where nothing was injected.
+
+# Questions for Approval {#sec-asks}
+
+1.  **Do you approve the four confirmatory outcomes?** AU06 peak, AU12
+    peak, Duchenne co-activation, Happy peak, noting that Happy peak is
+    largely redundant with AU12 peak (*r* = 0.85) and could be
+    substituted (@sec-confirmatory).
+2.  **Do you approve the exclusion rule for smile-less clips?** Exclude
+    any clip where AU12 never reaches grade A. This must be fixed before
+    results are seen (@sec-exclusions).
+3.  **Do the original full-length recordings still exist?** Re-cutting
+    with \~2 s padding would recover onset, offset and true duration,
+    the highest-value action available (@sec-censoring).
+4.  **Was the 8 fps downsampling deliberate?** Or an unintended side
+    effect of the conversion step? Are 30 fps sources available
+    (@sec-fps)?
+5.  **Can the 13 state-log files be re-exported?** C15, C31 and one C24
+    clip. Without them two smilers are lost entirely (@sec-statelogs).
+6.  **Was `E25SA07-03` recorded against a humorous or a sad video?** The
+    clip code and the source filename disagree; it is currently excluded
+    (@sec-conflict).
+7.  **Did NZ European smilers watch the same videos as Chinese smilers?**
+    Or culturally matched different ones? This determines whether
+    stimulus is crossed with culture or nested within it, and changes
+    the model specification.
+8.  **How many smilers per culture in the complete dataset?** This
+    determines whether the cultural interaction is framed as confirmatory
+    or exploratory (@sec-power).
+
+# Proposed Sequence {#sec-next}
+
+| Step | Action | Owner |
+|------|--------------------------------------------------|--------------|
+| 1 | Approve or amend this plan; return signed as v1.0 | Ted |
+| 2 | Answer @sec-asks; re-export state logs; re-cut clips if possible | Ted |
+| 3 | Transfer remaining three cells via shared OneDrive folder, not email | Ted |
+| 4 | Re-run extraction; confirm the quality report is clean | Delphine |
+| 5 | Run the analysis in full mode | Delphine |
+| 6 | Cross-check headline results in SPSS | Delphine |
+| 7 | Circulate results before any interpretation is written | All |
+
+: Proposed sequence of work {#tbl-sequence}
+
+Step 7 matters. Seeing results before the plan is finalised is exactly
+what @sec-outcomes is designed to prevent.
+
+# Appendix {#sec-appendix}
+
+## Sample composition {#sec-a1}
+
+```{r tbl-composition}
+#| tbl-cap: "Genuine clips contributed per smiler and per stimulus. The unbalance is the reason repeated-measures ANOVA is unsuitable."
+sm <- as.data.frame(table(gen$smiler_id)); names(sm) <- c("Smiler", "Clips")
+sm <- sm[sm$Clips > 0, ]
+sti <- as.data.frame(table(gen$stimulus)); names(sti) <- c("Stimulus", "Clips")
+n <- max(nrow(sm), nrow(sti))
+pad <- function(d, n) {
+  d[] <- lapply(d, as.character)
+  if (nrow(d) < n) d[(nrow(d) + 1):n, ] <- ""
+  d
+}
+kable(cbind(pad(sm, n), pad(sti, n)), row.names = FALSE, align = "lrlr")
+```
+
+```{r fig-duration}
+#| fig-cap: "Distribution of clip durations across the 93 genuine clips. Unequal lengths mean any cumulative measure is partly a measure of clip length, which is why scale-free outcomes are preferred."
+#| fig-height: 3.6
+par(mar = c(4.2, 4.2, 1, 1))
+hist(gen$clip_duration_s, breaks = 16, col = "#1E3A8A", border = "white",
+     main = "", xlab = "Clip duration (seconds)", ylab = "Number of clips")
+abline(v = median(gen$clip_duration_s), col = "#D97706", lwd = 2, lty = 2)
+```
+
+```{r tbl-durstat}
+#| tbl-cap: "Clip duration summary (seconds), genuine clips."
+kable(as.data.frame(t(round(c(summary(gen$clip_duration_s)), 2))), row.names = FALSE)
+```
+
+## Full variance components {#sec-a2}
+
+```{r tbl-vcfull}
+#| tbl-cap: "Variance components from intercept-only mixed models on genuine clips. SD values are on each outcome's own scale (AU peaks 0–5; duchenne_prop and Happy_pk 0–1), so compare ICCs rather than SDs across rows."
+vfull <- function(y, grp) {
+  f <- gen[!is.na(gen[[y]]), ]
+  m <- lmer(as.formula(paste(y, "~ 1 + (1|", grp, ")")), data = f, REML = TRUE)
+  v <- as.data.frame(VarCorr(m))
+  data.frame(Outcome = y, Grouping = grp,
+             `SD between`  = round(sqrt(v$vcov[1]), 3),
+             `SD residual` = round(sqrt(v$vcov[2]), 3),
+             ICC = round(v$vcov[1] / sum(v$vcov), 3),
+             check.names = FALSE)
+}
+outs <- c("AU12_pk", "AU06_pk", "duchenne_prop", "Happy_pk", "AU12_prop")
+kable(do.call(rbind, c(lapply(outs, vfull, grp = "smiler_id"),
+                       lapply(outs, vfull, grp = "stimulus"))), row.names = FALSE)
+```
+
+## Correlations among the confirmatory outcomes {#sec-a3}
+
+```{r tbl-cor}
+#| tbl-cap: "Pearson correlations among the four confirmatory outcomes, genuine clips (n = 93)."
+cm <- cor(gen[, CONFIRM], use = "pairwise.complete.obs")
+kable(round(cm, 3))
+```
+
+The four confirmatory measures are **not independent tests**.
+Correlations run from `r sprintf("%.2f", min(cm[upper.tri(cm)]))` to
+`r sprintf("%.2f", max(cm[upper.tri(cm)]))`.
+
+This cuts two ways. It *supports* leaving the confirmatory set
+uncorrected, correlated tests inflate the familywise error rate far less
+than independent ones would, so a Bonferroni-style correction across four
+such measures would be needlessly conservative.
+
+But it also means the set carries less independent information than four
+measures suggests. `AU12_pk` and `Happy_pk` correlate at
+`r sprintf("%.2f", cm["AU12_pk","Happy_pk"])`, which is close to measuring
+the same thing twice, unsurprising, since FaceReader's happiness
+classifier is substantially driven by lip-corner movement.
+`duchenne_prop` is the most distinct of the four, which is a further point
+in its favour.
+
+## Full censoring table {#sec-a4}
+
+```{r tbl-censfull}
+#| tbl-cap: "Censoring by action unit across all 95 usable clips. Start-censored = active in the first frame (onset unobserved). End-censored = active in the final frame (offset unobserved)."
+aud <- clip[clip$channel_type == "action_unit", ]
+ct <- do.call(rbind, lapply(split(aud, aud$channel), function(d) {
+  data.frame(AU = d$channel[1],
+             `Start-censored n` = sum(d$censored_start),
+             `Start %` = round(100 * mean(d$censored_start), 1),
+             `End-censored n` = sum(d$censored_end),
+             `End %` = round(100 * mean(d$censored_end), 1),
+             check.names = FALSE)
+}))
+kable(ct[order(-ct$`End %`), ], row.names = FALSE)
+```
+
+## Distribution of AU intensity grades {#sec-a5}
+
+```{r tbl-grades}
+#| tbl-cap: "Frequency of each FaceReader intensity grade, pooled across all 20 action units and all frames of the 95 usable clips, and separately for the two units the hypotheses depend on."
+gl <- c("NotActive", "A", "B", "C", "D", "E")
+aucols <- grep("^AU[0-9]+$", names(frames), value = TRUE)
+tab_of <- function(v, label) {
+  v <- v[!is.na(v)]
+  t <- table(factor(v, levels = 0:5, labels = gl))
+  data.frame(Set = label, Grade = gl, n = as.integer(t),
+             `%` = round(100 * as.numeric(t) / sum(t), 2), check.names = FALSE)
+}
+kable(rbind(tab_of(unlist(frames[, aucols]), "All 20 AUs"),
+            tab_of(frames$AU12, "AU12 only"),
+            tab_of(frames$AU06, "AU06 only")), row.names = FALSE)
+```
+
+Two things follow. First, grade **E is effectively unused**, well under
+1% of all active cells, and never once for AU06. The nominally six-level
+scale is a five-level scale in practice, which slightly weakens the case
+for treating it as continuous and strengthens the argument for the
+ordinal sensitivity check in @sec-a9. Second, AU12 and AU06 use the full
+range far more than the average action unit does, which is expected given
+the stimuli and confirms the two markers are carrying real signal rather
+than noise.
+
+## Derived variables {#sec-a6}
+
+Computed from frame-level data by `02_analysis.R`; not available from
+FaceReader directly.
+
+| Variable | Definition |
+|-------------------|-----------------------------------------------------|
+| `duchenne_prop` | Of frames where AU12 is active, the proportion also having AU06 active. `NA` if AU12 never activates |
+| `au12_rise_rate` | Peak AU12 intensity divided by time from onset to peak. Computed **only** where onset was observed |
+| `au12_smooth` | Mean absolute frame-to-frame change in AU12 intensity. Lower = smoother |
+| `au12_n_bouts` | Number of distinct AU12 activation episodes within the clip |
+
+: Definitions of derived variables {#tbl-derived-def}
+
+```{r tbl-derived}
+#| tbl-cap: "Derived variable distributions across the 93 genuine clips. Note the reduced n for rise rate, a direct cost of the censoring described in Section 4.1."
+dv <- do.call(rbind, lapply(
+  c("duchenne_prop", "au12_rise_rate", "au12_smooth", "au12_n_bouts"),
+  function(v) {
+    x <- gen[[v]]
+    data.frame(Variable = v, n = sum(!is.na(x)),
+               Mean = round(mean(x, na.rm = TRUE), 3),
+               SD   = round(sd(x, na.rm = TRUE), 3),
+               Min  = round(min(x, na.rm = TRUE), 2),
+               Max  = round(max(x, na.rm = TRUE), 2))
+  }))
+kable(dv, row.names = FALSE)
+```
+
+`au12_rise_rate` is available for only
+`r sum(!is.na(gen$au12_rise_rate))` of `r nrow(gen)` clips, the clearest
+single illustration of what the tight clip cutting costs. Under
+re-cutting (@sec-censoring) this would approach full coverage.
+
+## Full power simulation grid {#sec-a7}
+
+```{r tbl-powerfull}
+#| tbl-cap: "Complete simulated power grid. Monte Carlo standard error is about 2 percentage points at 500 replicates and 4 at 150, so small non-monotonicities are simulation noise, not signal."
+pf <- pow
+names(pf) <- c("Smilers per culture", "Effect size d", "Power: main effect",
+               "Power: interaction", "Replicates")
+kable(pf, row.names = FALSE)
+```
+
+**Method.** Each replicate simulates a full dataset: two cultures × *k*
+smilers, each contributing 3–6 genuine and 3–6 performed smiles (drawn at
+random, so the design is unbalanced as in the real data). Each smiler
+receives a random intercept drawn from N(0, 1.04²); each smile receives
+residual noise from N(0, 0.885²). Both variances are the pilot estimates
+for `AU06_pk`. The genuine smiles in culture A are shifted by *d*
+residual SDs; those in culture B by *d*/2, making the interaction half
+the main effect. Each simulated dataset is fitted with
+`lme(y ~ type * culture, random = ~1 | smiler)` and power is the
+proportion of replicates in which the relevant term reaches *p* \< .05.
+Reproduced by `03_power_simulation.R`.
+
+## SPSS MIXED syntax {#sec-a8}
+
+Import `04_clip_summary_wide.csv`, one row per clip, variable names
+already SPSS-safe (longest is 16 characters).
+
+``` spss
+* Scale-free outcome (peak, proportion) - no duration covariate needed.
+MIXED AU06_pk BY smile_type culture
+  /FIXED  = smile_type culture smile_type*culture | SSTYPE(3)
+  /RANDOM = INTERCEPT | SUBJECT(smiler_id) COVTYPE(VC)
+  /RANDOM = INTERCEPT | SUBJECT(stimulus)  COVTYPE(VC)
+  /METHOD = REML
+  /PRINT  = SOLUTION TESTCOV
+  /EMMEANS = TABLES(smile_type*culture) COMPARE(smile_type) ADJ(BONFERRONI).
+
+* Cumulative outcome (total duration, AUC) - clip length MUST be covaried.
+MIXED AU06_durtot BY smile_type culture WITH clip_duration_s
+  /FIXED  = smile_type culture smile_type*culture clip_duration_s | SSTYPE(3)
+  /RANDOM = INTERCEPT | SUBJECT(smiler_id) COVTYPE(VC)
+  /METHOD = REML
+  /PRINT  = SOLUTION TESTCOV.
+```
+
+The second `/RANDOM` line is dropped in the cumulative example: with a
+covariate plus two crossed random effects, SPSS convergence becomes
+unreliable. Given the near-zero stimulus ICC in @sec-a2, dropping it is
+evidence-based rather than a concession.
+
+## The ordinal scale and sensitivity check {#sec-a9}
+
+FaceReader scores action units NotActive / A / B / C / D / E. These are
+recoded 0–5 and treated as continuous. The scale is ordinal, the A-to-B
+distance is not guaranteed to equal D-to-E, so this is an approximation,
+defensible with six levels and standard in the literature, but it should
+be stated in the methods rather than passed over. @sec-a5 shows grade E is
+nearly unused, so in practice the scale has five working levels, not six.
+
+**Proposed safeguard.** Re-run the four confirmatory outcomes as ordinal
+mixed models (cumulative link; R package `ordinal`, function `clmm`). If
+conclusions match, report the continuous models and note the check in a
+footnote. If they diverge, report the ordinal models. One paragraph, and
+it removes an easy reviewer objection.
+
+## Fallback if re-cutting is not possible {#sec-a10}
+
+Treat duration as right-censored and model it with survival methods:
+
+-   **Event indicator:** `0` where the unit is still active in the final
+    frame (censored), `1` where it genuinely ends within the clip.
+-   **Model:** Cox proportional hazards with a frailty term for smiler,
+    or a parametric accelerated failure time model.
+-   **In R:**
+    `survival::coxph(Surv(dur, event) ~ smile_type * culture + frailty(smiler_id))`
+-   **In SPSS:** Cox regression handles censoring but not the random
+    effect, so R is preferable.
+
+This is a genuine solution rather than a fudge, censoring is what
+survival analysis was built for. It is simply less informative than
+having observed the whole smile. Note that the censoring rates in
+@sec-a4 are high enough that even survival methods will be working hard.
+
+## Coding decisions applied {#sec-coding}
+
+| Decision | Rule |
+|-------------------|-----------------------------------------------------|
+| AU intensity | NotActive = 0, A = 1, B = 2, C = 3, D = 4, E = 5, FIT_FAILED = `NA` |
+| AU active | Intensity ≥ 1 (A and above) |
+| Emotion active | Probability ≥ 0.5 |
+| Smile type | HA stimulus = genuine, SA stimulus = performed |
+| Duration covariate | Applied to cumulative outcomes only: `_durtot`, `_durmax`, `_auc`, `_neps` |
+| Smiler ID | From the **internal** clip code (`E17HA07-02` → C17), not the `Participant_###` numbers in export filenames, which are upload IDs and do not identify a person |
+| Stimulus | Also from the internal clip code. The `chi_hap_N` number in the export filename does not always match the stimulus, C24 `chi_hap_4` is in fact `Happy 5 CN` |
+| Multiplicity | Confirmatory set uncorrected; exploratory set Benjamini–Hochberg at *q* = .05 |
+
+: Coding decisions applied by the pipeline {#tbl-coding}
+
+## Excluded and problematic files {#sec-a12}
+
+```{r tbl-excluded}
+#| tbl-cap: "All files not entering the analysis, with reason. State logs require re-export; the label conflict and the smile-less clips require decisions from Ted."
+ex <- rbind(
+  data.frame(Identifier = man$export_file[man$status == "state_log_only"],
+             Reason = "State log, no AU or emotion data; re-export needed"),
+  data.frame(Identifier = man$clip_id[which(man$label_conflict == 1)],
+             Reason = "Stimulus label conflict, SA code vs Happy source video"),
+  data.frame(Identifier = null_clips$clip_id,
+             Reason = "No AU12 activation in any frame, proposed exclusion"))
+ex$Identifier <- substr(ex$Identifier, 1, 58)
+kable(ex, row.names = FALSE)
+```
+
+## Pipeline and output files {#sec-a13}
+
+Three scripts, base R plus `lme4`. `01_extract_facereader.R` parses the
+raw exports and writes files 01–06; `02_analysis.R` derives measures,
+fits models and writes 07–11; `03_power_simulation.R` writes 12 and is
+run once.
+
+| File | Contents |
+|-------------------------------|-----------------------------------------|
+| `01_file_manifest.csv` | Every input file, parse status, exclusion reason |
+| `02_frames_wide.csv` | Frame-level data, all channels |
+| `03_clip_summary_long.csv` | Clip × channel summary, tidy |
+| `04_clip_summary_wide.csv` | One row per clip, **the SPSS import file** |
+| `05_channel_dictionary.csv` | AU codes to muscle names |
+| `06_data_quality_report.txt` | Inventory, coverage, censoring audit |
+| `07_analysis_dataset.csv` | Analysis set with derived variables, post-exclusion |
+| `08_descriptives_by_condition.csv` | Means, SDs, ranges by cell |
+| `09_confirmatory_results.csv` | The four pre-specified tests |
+| `10_exploratory_results.csv` | FDR-corrected screen |
+| `11_analysis_log.txt` | Audit trail of every decision applied |
+| `12_power_simulation.csv` | Simulation underlying @sec-power |
+
+: Pipeline outputs {#tbl-outputs}
+
+## Approval {#sec-a14}
+
+To be completed on sign-off. Amendments after this point are recorded as
+v1.1+ with rationale, and must be made before results are seen.
+
+| Item | Response |
+|------------------------------------|------------------------------------|
+| Confirmatory outcomes (@sec-confirmatory) | Approved / Amended, |
+| Model specification (@sec-model) | Approved / Amended, |
+| Exclusion rule (@sec-exclusions) | Approved / Amended, |
+| Interaction as exploratory (@sec-power) | Agreed / Not agreed, |
+| Signature |  |
+| Date |  |
+
+: Approval record {#tbl-approval}
+
+## Session information {#sec-a15}
+
+```{r session}
+sessionInfo()
+```

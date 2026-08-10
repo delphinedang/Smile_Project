@@ -1,5 +1,5 @@
 SMILE PROJECT - ANALYSIS LOG
-Generated: 2026-08-07 14:20:15
+Generated: 2026-08-10 15:46:48
 Engine   : lme4::lmer
 Mode     : PILOT
 ==========================================================================
@@ -45,7 +45,8 @@ Mode     : PILOT
   averaging would treat a person with one smile as being as precise
   as a person with eight.
 
-  Duration covariate added for cumulative outcomes: _durtot _durmax _auc _neps
+  Duration covariate added for peak, timing and cumulative outcomes:
+  _pk _durtot _durmax _auc _neps _tpk
 
 4. MULTIPLICITY
 --------------------------------------------------------------------------

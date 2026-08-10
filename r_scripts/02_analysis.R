@@ -38,9 +38,19 @@ FDR_ALPHA <- 0.05
 MIN_PER_CELL   <- 5
 MIN_SMILERS    <- 6
 
-# Outcomes that depend on clip length and therefore need duration as a
-# covariate. Scale-free outcomes (peak, proportions) do not.
-NEEDS_DURATION_COVARIATE <- c("_durtot", "_durmax", "_auc", "_neps")
+# Outcomes that need clip duration as a covariate.
+#
+# REVISED after the pilot analysis. Cumulative outcomes obviously depend on
+# clip length. But PEAK outcomes do too, and less obviously: the maximum of a
+# longer series is stochastically larger, so peak intensity rises with clip
+# duration purely as a sampling artefact. In the pilot data peak AU12 rose with
+# duration (beta = 0.26, 95% CI [0.08, 0.44]), and that association vanished
+# when every clip was truncated to a common window (beta = 0.03, p = .76).
+#
+# If clip lengths differ between genuine and performed smiles, an uncorrected
+# peak comparison is biased. Proportions (_prop) and duchenne_prop are
+# scale-free and are the only outcomes genuinely exempt.
+NEEDS_DURATION_COVARIATE <- c("_pk", "_durtot", "_durmax", "_auc", "_neps", "_tpk")
 
 
 # -----------------------------------------------------------------------------
@@ -354,33 +364,81 @@ if (MODE %in% c("FULL", "PARTIAL")) {
 # 9. PLOTS
 # -----------------------------------------------------------------------------
 
-png(file.path(fig_dir, "fig1_au12_au06_timecourse.png"),
-    width = 1600, height = 900, res = 150)
-par(mfrow = c(1, 2), mar = c(4, 4, 3, 1))
+NAVY <- "#1E3A8A"; AMBER <- "#D97706"; RED <- "#BE123C"; GREY <- "#CBD5E1"
+
+# --- Fig 1: raster of every clip's AU12 / AU06 time course ------------------
+# One row per clip, time normalised to clip length, shade = intensity.
+# Overplotting 90+ ordinal step functions as lines is unreadable; a raster
+# shows every clip legibly and makes two things visible at once: bands that
+# run to the right-hand edge are right-censored, and blank rows are clips
+# with no activation at all.
+raster_matrix <- function(ch, ids, ncol = 50) {
+  t(sapply(ids, function(id) {
+    v <- frames[[ch]][frames$clip_id == id]
+    if (!length(v)) return(rep(NA_real_, ncol))
+    approx(seq(0, 1, length.out = length(v)), v,
+           xout = seq(0, 1, length.out = ncol), method = "constant", rule = 2)$y
+  }))
+}
+ord <- analysis$clip_id[order(analysis$smile_type, analysis$AU12_prop)]
+pal <- colorRampPalette(c("#F8FAFC", "#BFDBFE", "#60A5FA", "#1E3A8A"))(6)
+
+png(file.path(fig_dir, "fig1_au12_au06_raster.png"),
+    width = 1700, height = 1000, res = 155)
+layout(matrix(c(1, 2, 3, 3), nrow = 2, byrow = TRUE), heights = c(6, 1))
+par(mar = c(4.2, 3.4, 2.6, 1))
 for (ch in c("AU12", "AU06")) {
-  plot(NA, xlim = c(0, 1), ylim = c(0, 5),
-       xlab = "Proportion through clip", ylab = "Intensity (0-5)",
-       main = paste0(ch, if (ch == "AU12") " - Lip Corner Puller" else " - Cheek Raiser"))
-  for (cid in unique(frames$clip_id)) {
-    d <- frames[frames$clip_id == cid, ]
-    ty <- analysis$smile_type[match(cid, analysis$clip_id)]
-    col <- if (!is.na(ty) && ty == "Fake") rgb(.85,.2,.2,.5) else rgb(.2,.4,.8,.25)
-    lines(seq_len(nrow(d)) / nrow(d), d[[ch]], col = col, lwd = 1)
+  m <- raster_matrix(ch, ord)
+  image(x = seq(0, 1, length.out = ncol(m)), y = seq_len(nrow(m)),
+        z = t(m), col = pal, zlim = c(0, 5), axes = FALSE,
+        xlab = "Proportion through clip", ylab = "",
+        main = paste0(ch, if (ch == "AU12") " - Lip Corner Puller"
+                          else " - Cheek Raiser"))
+  axis(1); box(col = "grey70")
+  mtext("Clips, least to most active (bottom to top)", side = 2, line = 1, cex = .78)
+}
+par(mar = c(0, 0, 0, 0)); plot.new()
+legend("center", legend = c("None", "A", "B", "C", "D", "E"), fill = pal,
+       border = "grey70", bty = "n", cex = .95, horiz = TRUE,
+       title = "AU intensity grade")
+dev.off()
+layout(1)
+
+# --- Fig 2: mean trajectory by smile type ----------------------------------
+png(file.path(fig_dir, "fig2_mean_trajectory.png"),
+    width = 1700, height = 750, res = 155)
+par(mfrow = c(1, 2), mar = c(4.2, 4.2, 2.6, 1))
+for (ch in c("AU12", "AU06")) {
+  plot(NA, xlim = c(0, 1), ylim = c(0, 4), xlab = "Proportion through clip",
+       ylab = paste(ch, "intensity"), main = paste(ch, "- mean trajectory"))
+  for (ty in levels(analysis$smile_type)) {
+    ids <- analysis$clip_id[analysis$smile_type == ty]
+    if (length(ids) < 3) next
+    m  <- raster_matrix(ch, ids)
+    mu <- colMeans(m, na.rm = TRUE)
+    se <- apply(m, 2, function(x) sd(x, na.rm = TRUE) / sqrt(sum(!is.na(x))))
+    xx <- seq(0, 1, length.out = length(mu))
+    col <- if (ty == "Genuine") NAVY else AMBER
+    polygon(c(xx, rev(xx)), c(mu - 1.96*se, rev(mu + 1.96*se)),
+            col = adjustcolor(col, .18), border = NA)
+    lines(xx, mu, col = col, lwd = 2.4)
   }
-  legend("topright", c("Genuine", "Fake"), col = c(rgb(.2,.4,.8,.8), rgb(.85,.2,.2,.8)),
-         lwd = 2, bty = "n", cex = .8)
+  legend("topleft", levels(analysis$smile_type), col = c(AMBER, NAVY),
+         lwd = 2.4, bty = "n", cex = .85)
 }
 dev.off()
 
-png(file.path(fig_dir, "fig2_censoring.png"), width = 1400, height = 900, res = 150)
-par(mar = c(4, 7, 3, 2))
-aus <- grep("^AU[0-9]+_cens1$", names(analysis), value = TRUE)
+# --- Fig 3: censoring ------------------------------------------------------
+png(file.path(fig_dir, "fig3_censoring.png"), width = 1500, height = 1000, res = 155)
+par(mar = c(4.4, 6.5, 2.4, 2))
+aus   <- grep("^AU[0-9]+_cens1$", names(analysis), value = TRUE)
 rates <- sort(sapply(aus, function(a) mean(analysis[[a]], na.rm = TRUE)))
-barplot(rates * 100, horiz = TRUE, las = 1, xlim = c(0, 100),
-        names.arg = sub("_cens1", "", names(rates)), cex.names = .7,
-        xlab = "% of clips still active in final frame",
-        main = "Right-censoring by action unit", col = "steelblue")
-abline(v = 50, lty = 2, col = "red")
+cols  <- ifelse(names(rates) %in% c("AU12_cens1", "AU06_cens1"), AMBER, NAVY)
+barplot(rates * 100, horiz = TRUE, las = 1, xlim = c(0, 100), border = NA,
+        names.arg = sub("_cens1", "", names(rates)), cex.names = .75,
+        xlab = "% of clips still active in final frame", col = cols,
+        main = "Right-censoring by action unit")
+abline(v = 50, lty = 2, col = RED)
 dev.off()
 
 message("Wrote figures to ", fig_dir)
@@ -472,7 +530,8 @@ p("  This is deliberate: the number of smiles per person varies, and")
 p("  averaging would treat a person with one smile as being as precise")
 p("  as a person with eight.")
 p("")
-p("  Duration covariate added for cumulative outcomes: ",
+p("  Duration covariate added for peak, timing and cumulative outcomes:")
+p("  ",
   paste(NEEDS_DURATION_COVARIATE, collapse = " "))
 
 p("\n4. MULTIPLICITY")

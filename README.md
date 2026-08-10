@@ -302,6 +302,7 @@ re-running everything.
 | AU active | Intensity ≥ 1 (grade A and above) |
 | Emotion active | Probability ≥ 0.5 |
 | Smile type | `HA` stimulus = Genuine, `SA` = Fake |
+| Duration covariate | Applied to `_pk`, `_tpk`, `_durtot`, `_durmax`, `_auc`, `_neps`. Peak measures need it because the maximum of a longer series is stochastically larger — see Known issues. Scale-free proportions exempt |
 | Missing data | `FIT_FAILED` → `NA`, **never zero** |
 | Unit of analysis | One smile episode, not one person |
 
@@ -344,6 +345,18 @@ elsewhere. Not tracking failures — zero `FIT_FAILED` cells and other AUs
 fire normally, so it looks like mis-segmentation. Currently **retained**
 in the analysis set pending a decision on the exclusion rule proposed in
 the Statistical Analysis Plan.
+
+### Peak intensity is confounded with clip length
+
+Peak AU12 rises with clip duration (β = 0.26 per SD, 95% CI [0.08, 0.44]).
+This is a sampling artefact — the maximum of a longer series is
+stochastically larger. Truncating every clip to a common 21-frame window
+removes the association entirely (β = 0.03, p = .76).
+
+**Consequence:** if genuine and performed clips differ in length, an
+uncorrected comparison of `_pk` measures is biased. The pipeline covaries
+clip duration for all peak outcomes. `duchenne_prop` and `_prop` measures
+are scale-free and unaffected.
 
 ### Grade E is effectively unused
 

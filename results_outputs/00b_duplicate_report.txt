@@ -1,0 +1,91 @@
+DUPLICATE DIAGNOSIS
+Generated: 2026-08-11 17:37:15
+==========================================================================
+
+Files scanned: 720
+
+Reading files and fingerprinting content...
+
+1. IDENTICAL CONTENT
+--------------------------------------------------------------------------
+  Total files                 : 720
+  Distinct content signatures : 359
+  Files that are copies        : 361
+
+  ** 358 clips appear more than once **
+  Copies per clip:
+    
+      1   2   3   4 
+      1 356   1   1 
+
+2. WHICH FOLDERS DO THE COPIES SPAN?
+--------------------------------------------------------------------------
+  span
+                       Chinese Genuine Smiles  +  European Genuine Smiles                            Chinese Fake Smiles  +  European Fake Smiles 
+                                                                      179                                                                     178 
+  Chinese Fake Smiles  +  Chinese Genuine Smiles  +  European Fake Smiles 
+                                                                        1 
+
+  First 10 duplicated clips:
+  clip code      folders                                    n
+  E24HA01-02     Chinese Genuine Smiles + European Genuine Smiles 2
+  E31HA05-04     Chinese Genuine Smiles + European Genuine Smiles 2
+  E01SA05-01     Chinese Fake Smiles + European Fake Smiles 2
+  E23SA03-06     Chinese Fake Smiles + European Fake Smiles 2
+  E23SA01-02     Chinese Fake Smiles + European Fake Smiles 2
+  W72SA05-02     Chinese Fake Smiles + European Fake Smiles 2
+  E19SA07-01     Chinese Fake Smiles + European Fake Smiles 2
+  W56SA07-04     Chinese Fake Smiles + European Fake Smiles 2
+  E24SA03-02     Chinese Fake Smiles + European Fake Smiles 2
+  E20SA07-02     Chinese Fake Smiles + European Fake Smiles 2
+
+3. REPEATED CLIP CODES
+--------------------------------------------------------------------------
+  Distinct clip codes: 358
+  Codes used more than once: 357
+
+  Do repeated codes always have identical content?
+    same content  : 356 codes
+    DIFFERENT content: 1 codes  <- these are a real problem
+
+  Codes reused for DIFFERENT clips (first 10):
+    E27HA03-02
+       Chinese Fake Smiles        Sad 3 CN                 61 frames
+       Chinese Genuine Smiles     Happy 3 CN               60 frames
+       European Fake Smiles       Sad 3 CN                 61 frames
+       European Genuine Smiles    Happy 3 CN               60 frames
+
+4. THE UNIQUE DATASET
+--------------------------------------------------------------------------
+  Unique clips: 359  (from 720 files)
+
+  Design coverage, counting each clip ONCE:
+              
+               Fake Genuine
+      Chinese   150     150
+      European   29      30
+
+  Smilers per cell:
+             Fake Genuine
+    Chinese    26      25
+    European    5       5
+
+  Clips per smiler:
+    
+    E01 E04 E06 E07 E09  E1 E10 E11 E13 E14 E15 E17 E18 E19 E20 E22 E23 E24 E25 E26 E27 E28 E30 E31 E32 E56 W56 W70 W71 W72 W73 
+     12  12  12  12  12  12  12  12  12  12  12  12  12  12  12  12  12  12  12  12  12  12  12  12  11   1  11  12  13  11  12 
+
+5. WHAT THIS MEANS
+--------------------------------------------------------------------------
+  361 of the 720 files are duplicates.
+  They MUST be removed before analysis. Counting the same smile twice
+  would inflate the sample and make results look stronger than they are.
+
+  The unique clip list has been written to 00b_unique_clip_list.csv.
+  The extraction script can be pointed at that list instead of the folders.
+
+  Check the smiler counts above. If there are far fewer European smilers
+  than Chinese, ask Ted whether more European data exists.
+
+==========================================================================
+END

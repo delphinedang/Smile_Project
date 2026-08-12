@@ -1,0 +1,26 @@
+Video analysis detailed log
+
+Face Model	General
+Calibration	-
+Start time	7/7/2026 16:49:52.385
+Filename	C:\Users\speso916\OneDrive - University of Otago\Desktop\FinalFullFaceVideos\East\C01_noback\Sad 5 CN.mp4_converted_E01SA05-01_noback.mp4
+Frame rate	8.000000000
+
+
+
+Video Time	Neutral	Happy	Sad	Angry	Surprised	Scared	Disgusted	Contempt	Action Unit 01 - Inner Brow Raiser	Action Unit 02 - Outer Brow Raiser	Action Unit 04 - Brow Lowerer	Action Unit 05 - Upper Lid Raiser	Action Unit 06 - Cheek Raiser	Action Unit 07 - Lid Tightener	Action Unit 09 - Nose Wrinkler	Action Unit 10 - Upper Lip Raiser	Action Unit 12 - Lip Corner Puller	Action Unit 14 - Dimpler	Action Unit 15 - Lip Corner Depressor	Action Unit 17 - Chin Raiser	Action Unit 18 - Lip Pucker	Action Unit 20 - Lip Stretcher	Action Unit 23 - Lip Tightener	Action Unit 24 - Lip Pressor	Action Unit 25 - Lips Part	Action Unit 26 - Jaw Drop	Action Unit 27 - Mouth Stretch	Action Unit 43 - Eyes Closed
+00:00:00.000	0.395379000	0.009646224	0.316028100	0.052227150	0.002378874	0.000139026	0.034781020	0.001862634	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	NotActive	NotActive	E
+00:00:00.125	0.436422800	0.070123230	0.223266600	0.051751290	0.002187785	0.000681034	0.028370150	0.001556937	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	NotActive	NotActive	E
+00:00:00.250	0.477853700	0.063982650	0.154542600	0.133138300	0.001881230	0.002026441	0.020622640	0.001365806	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	A	NotActive	NotActive	D
+00:00:00.375	0.486451100	0.060384830	0.107428400	0.237895400	0.001575120	0.002655672	0.015681800	0.001556617	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	D
+00:00:00.500	0.470108200	0.058316230	0.075970440	0.300176500	0.001345715	0.003020832	0.012435790	0.002372658	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	C
+00:00:00.625	0.492728800	0.055873790	0.054591790	0.299979600	0.001077416	0.003340969	0.013482610	0.004322733	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	C
+00:00:00.750	0.524460000	0.052856340	0.040978110	0.255355600	0.000923370	0.002592247	0.018664260	0.006694401	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	C
+00:00:00.875	0.591858800	0.050689160	0.039495390	0.185042600	0.000969342	0.002021497	0.023489300	0.008153411	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	A	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	D
+00:00:01.000	0.615972000	0.052075430	0.035533440	0.134962300	0.000904958	0.001627926	0.040541810	0.006019593	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	A	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	D
+00:00:01.125	0.652476000	0.043527690	0.028610690	0.138630200	0.000894708	0.001498939	0.039749100	0.004987268	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	A	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	D
+00:00:01.250	0.654928700	0.033856310	0.021644920	0.198394200	0.000994938	0.001557109	0.031801010	0.004183917	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	A	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	D
+00:00:01.375	0.628177200	0.027787940	0.017257880	0.224702200	0.001038724	0.002490639	0.030505020	0.003519821	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	A	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	C
+00:00:01.500	0.619353700	0.022501130	0.014006960	0.242365100	0.001206631	0.004501553	0.026256420	0.002582147	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	A	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	C
+00:00:01.625	0.618756300	0.020608540	0.011307520	0.262167400	0.001011031	0.004758364	0.021358750	0.002051995	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	C
+00:00:01.750	0.626736600	0.019326010	0.010343600	0.262722000	0.000857862	0.005482792	0.019981800	0.002346199	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	NotActive	A	NotActive	NotActive	C

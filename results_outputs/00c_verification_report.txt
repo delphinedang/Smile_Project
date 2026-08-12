@@ -1,0 +1,89 @@
+DUPLICATE VERIFICATION  -  exact comparison, no fingerprints
+Generated: 2026-08-11 17:45:42
+==========================================================================
+
+Files on disk: 720
+
+Folder counts (should add up to the number above):
+  Chinese Fake Smiles           181
+  Chinese Genuine Smiles        180
+  European Fake Smiles          180
+  European Genuine Smiles       179
+  TOTAL                         720
+
+Reading all files in full (this may take a minute)...
+
+1. EXACT COMPARISON OF MEASUREMENT DATA
+--------------------------------------------------------------------------
+  Two files count as the same clip only if every single data row is
+  character-for-character identical. No hashing, no approximation.
+
+  Files                     : 720
+  Distinct measurement sets : 359
+  Redundant copies          : 361
+
+  >>> CONFIRMED: 361 of 720 files repeat data already present. <<<
+
+2. HOW IDENTICAL ARE THEY?
+--------------------------------------------------------------------------
+  Repeated clips: 358
+    whole file identical (incl. header): 358
+    filename also identical            : 357
+    file size also identical           : 358
+
+  If filenames and sizes match too, these are straightforward copies
+  of the same export - most likely a folder was duplicated.
+
+3. CHECK THESE YOURSELF
+--------------------------------------------------------------------------
+  Open each pair below and compare. They should be identical.
+
+  --- Example 1: 84 data rows, 24,256 bytes ---
+    /Users/delphine/Documents/RESEARCH PROJECT/smile_project/smile_project_github/Smile_Project/raw_data_all/Chinese Fake Smiles/Participant 100_Participant 70 chi sad 6 C00_Analysis 1_video_20260707_161638_detailed.txt
+    /Users/delphine/Documents/RESEARCH PROJECT/smile_project/smile_project_github/Smile_Project/raw_data_all/European Fake Smiles/Participant 100_Participant 70 chi sad 6 C00_Analysis 1_video_20260707_161638_detailed.txt
+    source video recorded inside the file: Sad 6 CN.mp4_converted_E1SA06-01_noback.mp4
+    identical data rows: TRUE | identical whole file: TRUE
+
+  --- Example 2: 33 data rows, 10,607 bytes ---
+    /Users/delphine/Documents/RESEARCH PROJECT/smile_project/smile_project_github/Smile_Project/raw_data_all/Chinese Fake Smiles/Participant 107_Participant 77 chi sad 1 C01_Analysis 1_video_20260707_164701_detailed.txt
+    /Users/delphine/Documents/RESEARCH PROJECT/smile_project/smile_project_github/Smile_Project/raw_data_all/European Fake Smiles/Participant 107_Participant 77 chi sad 1 C01_Analysis 1_video_20260707_164701_detailed.txt
+    source video recorded inside the file: Sad 1 CN.mp4_converted_E01SA01-01_noback.mp4
+    identical data rows: TRUE | identical whole file: TRUE
+
+  --- Example 3: 43 data rows, 13,419 bytes ---
+    /Users/delphine/Documents/RESEARCH PROJECT/smile_project/smile_project_github/Smile_Project/raw_data_all/Chinese Fake Smiles/Participant 108_Participant 78 chi sad 2 C01_Analysis 1_video_20260707_164738_detailed.txt
+    /Users/delphine/Documents/RESEARCH PROJECT/smile_project/smile_project_github/Smile_Project/raw_data_all/European Fake Smiles/Participant 108_Participant 78 chi sad 2 C01_Analysis 1_video_20260707_164738_detailed.txt
+    source video recorded inside the file: Sad 3 CN.mp4_converted_E01SA03-01_noback.mp4
+    identical data rows: TRUE | identical whole file: TRUE
+
+
+4. SANITY CHECK - are the 'unique' files genuinely different?
+--------------------------------------------------------------------------
+  If the method were broken it might merge files that are actually
+  different. Checking 5 random pairs of supposedly-different files:
+
+    Participant 370_Participant 34  vs  Participant 74_Participant 45    -> identical? FALSE
+    Participant 359_Participant 33  vs  Participant 329_Participant 30   -> identical? FALSE
+    Participant 274_Participant 24  vs  Participant 113_Participant 83   -> identical? FALSE
+    Participant 341_Participant 31  vs  Participant 268_Participant 23   -> identical? FALSE
+    Participant 29_Participant 1 c  vs  Participant 41_Participant 13    -> identical? FALSE
+
+  All should say FALSE. If any say TRUE, something is wrong.
+
+5. WHAT DO THE FOLDER NAMES ACTUALLY TELL US?
+--------------------------------------------------------------------------
+  Culture letter in the clip code, by folder:
+                           cult
+  folder                    E (Chinese) W (European)
+    Chinese Fake Smiles             151           30
+    Chinese Genuine Smiles          150           30
+    European Fake Smiles            151           29
+    European Genuine Smiles         149           30
+
+  If E-coded clips appear in BOTH Chinese and European folders, then the
+  folder name does not identify the smiler's culture. Only the clip code does.
+
+  Every duplicate group written to 00c_duplicate_pairs.csv (719 rows)
+
+==========================================================================
+END OF VERIFICATION

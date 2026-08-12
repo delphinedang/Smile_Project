@@ -1,0 +1,14 @@
+Video analysis state log
+
+Face Model	General
+Calibration	-
+Start time	7/7/2026 18:51:58.020
+Filename	C:\Users\speso916\OneDrive - University of Otago\Desktop\FinalFullFaceVideos\East\C15_noback\Happy 7 CN.mp4_converted_E15HA07-01_noback.mp4
+Frame rate	8.000000000
+
+
+
+Video Time	Dominant Expression
+00:00:00.000	Unknown
+00:00:01.875	Happy
+00:00:03.375	END

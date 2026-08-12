@@ -1,0 +1,128 @@
+RAW DATA INSPECTION
+Generated: 2026-08-11 14:58:39
+Source   : /Users/delphine/Documents/RESEARCH PROJECT/smile_project/smile_project_github/Smile_Project/raw_data_all
+==========================================================================
+
+1. FOLDERS FOUND
+--------------------------------------------------------------------------
+  Chinese Fake Smiles               181 .txt files
+  Chinese Genuine Smiles            180 .txt files
+  European Fake Smiles              180 .txt files
+  European Genuine Smiles           179 .txt files
+
+  TOTAL .txt files: 720
+
+2. EXPORT TYPE  (detailed = usable, state = no action-unit data)
+--------------------------------------------------------------------------
+  detailed          720
+
+3. COLUMN LAYOUT  (detailed files only)
+--------------------------------------------------------------------------
+  Distinct layouts: 1
+  Column counts   : 29
+  All detailed files share an identical layout. Good.
+
+4. FRAME RATE
+--------------------------------------------------------------------------
+  8.000 fps : 714 files
+  8.119 fps : 2 files
+  8.150 fps : 2 files
+  8.190 fps : 2 files
+
+5. INTERNAL CLIP CODES
+--------------------------------------------------------------------------
+  Format expected from the pilot batch: <letter><number><HA|SA><number>-<number>
+  e.g. E11HA01-01   E = East/Chinese, 11 = smiler, HA = humorous, 01 = stimulus
+
+  Codes extracted: 720 of 720 detailed files
+
+  Match the expected pattern : 720
+  Do NOT match               : 0
+
+  >>> CULTURE PREFIXES FOUND (the letter at the start of each code) <<<
+     'E' :   601 clips
+     'W' :   119 clips
+     (pilot batch used 'E'. The parser must be told what European uses.)
+
+  Stimulus type codes:
+     HA :   360 clips
+     SA :   360 clips
+
+6. DOES THE FOLDER AGREE WITH THE CLIP CODE?
+--------------------------------------------------------------------------
+  The folder name and the internal code are two independent records.
+  Any disagreement needs resolving before analysis.
+
+                           code
+  folder                     HA  SA
+    Chinese Fake Smiles       2 179
+    Chinese Genuine Smiles  178   2
+    European Fake Smiles      2 178
+    European Genuine Smiles 178   1
+
+  Expected: 'Genuine' folders -> HA,  'Fake' folders -> SA
+
+  Mismatches: 7
+     E07HA02-03     folder='Chinese Fake Smiles'  file=Participant 143_Participant 113 chi sad 1 C07_Analysis 1_video_20260707_172233_detailed.txt
+     E27HA03-02     folder='Chinese Fake Smiles'  file=Participant 335_Participant 306 chi sad 1 C027_Analysis 1_video_20260713_145633_detailed.txt
+     E25SA07-03     folder='Chinese Genuine Smiles'  file=Participant 310_Participant 281  chi hap 6 C025 _Analysis 1_video_20260713_142409_detailed.txt
+     E32SA02-01     folder='Chinese Genuine Smiles'  file=Participant 383_Participant 354 chi sad 1 C032_Analysis 1_video_20260713_153135_detailed.txt
+     E07HA02-03     folder='European Fake Smiles'  file=Participant 143_Participant 113 chi sad 1 C07_Analysis 1_video_20260707_172233_detailed.txt
+     E27HA03-02     folder='European Fake Smiles'  file=Participant 335_Participant 306 chi sad 1 C027_Analysis 1_video_20260713_145633_detailed.txt
+     E25SA07-03     folder='European Genuine Smiles'  file=Participant 310_Participant 281  chi hap 6 C025 _Analysis 1_video_20260713_142409_detailed.txt
+
+  Culture prefix by folder:
+                           prefix
+  folder                      E   W
+    Chinese Fake Smiles     151  30
+    Chinese Genuine Smiles  150  30
+    European Fake Smiles    151  29
+    European Genuine Smiles 149  30
+
+7. SMILERS
+--------------------------------------------------------------------------
+  Distinct smilers: 30
+
+  Clips per smiler:
+    min 2, median 24, max 48
+  
+  E01 E04 E06 E07 E09 E10 E11 E13 E14 E15 E17 E18 E19 E20 E22 E23 E24 E25 E26 E27 E28 E30 E31 E32 E56 W56 W70 
+   48  24  24  24  24  24  24  24  24  24  24  24  24  24  24  24  24  24  24  24  24  24  24  23   2  23  24 
+  W71 W72 W73 
+   26  22  24 
+
+  ** ID COLLISION CHECK **
+  If two cultures reuse the same numbers, the prefix must be kept in the ID.
+  Numbers reused across cultures: 56
+  -> This is fine, PROVIDED the culture letter is kept in the smiler ID
+     (E07 and W07 are different people). The parser already does this.
+
+  Smilers per culture:
+  code_cult
+    E   W 
+  601 119 
+
+8. DESIGN COVERAGE  (what the analysis will actually have)
+--------------------------------------------------------------------------
+         type
+  culture  HA  SA
+        E 300 301
+        W  60  59
+
+  Smilers contributing to each cell:
+    HA SA
+  E 24 25
+  W  5  5
+
+9. WHAT TO CHECK IN THIS REPORT
+--------------------------------------------------------------------------
+  a) Section 5: which letters are used for culture. The parser currently
+     knows E = Chinese and assumes W = European. If European uses something
+     else, one line in 01_extract_facereader.R needs changing.
+  b) Section 6: any folder-vs-code mismatches must be resolved with Ted.
+  c) Section 7: whether smiler numbers collide across cultures.
+  d) Section 2: how many state logs still need re-exporting.
+  e) Section 4: whether frame rate is 8 fps throughout.
+
+==========================================================================
+END OF INSPECTION

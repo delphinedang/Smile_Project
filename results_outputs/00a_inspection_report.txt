@@ -1,0 +1,162 @@
+RAW DATA INSPECTION
+Generated: 2026-08-12 15:54:46
+Source   : /Volumes/PRJ-smile/raw_data_all
+==========================================================================
+
+1. FOLDERS AND FILE COUNTS
+--------------------------------------------------------------------------
+  Chinese Fake Smiles              181
+  Chinese Genuine Smiles           180
+  European Fake Smiles             180
+  European Genuine Smiles          179
+  TOTAL                            720
+
+2. EXPORT TYPE
+--------------------------------------------------------------------------
+  detailed           720
+
+  'detailed' files carry per-frame emotions and action units - usable.
+  'state_log' files carry only dominant-expression changes - NOT usable,
+  they must be re-exported from FaceReader as detailed logs.
+
+3. FILE STRUCTURE
+--------------------------------------------------------------------------
+  Distinct column layouts: 1 (consistent - good)
+
+  Frame rates:
+    8            714 files
+    8.119402985     2 files
+    8.15           2 files
+    8.19           2 files
+
+  Frame rate is read per file, so small differences are handled.
+
+4. DUPLICATE CLIPS
+--------------------------------------------------------------------------
+  Two files count as the same clip only if every data row matches
+  character for character. No fingerprints, no approximation.
+
+  Files                     : 720
+  Distinct measurement sets : 359
+  Redundant copies          : 361
+
+  Repeated clips: 358
+  ...of which the filename also matches: 357
+
+  Folders the copies span:
+    span
+                       Chinese Genuine Smiles + European Genuine Smiles                          Chinese Fake Smiles + European Fake Smiles 
+                                                                    179                                                                 178 
+    Chinese Fake Smiles + Chinese Genuine Smiles + European Fake Smiles 
+                                                                      1 
+
+  Three examples - open these and compare for yourself:
+    [84 rows, 24,256 bytes]
+      /Volumes/PRJ-smile/raw_data_all/Chinese Fake Smiles/Participant 100_Participant 70 chi sad 6 C00_Analysis 1_video_20260707_161638_detailed.txt
+      /Volumes/PRJ-smile/raw_data_all/European Fake Smiles/Participant 100_Participant 70 chi sad 6 C00_Analysis 1_video_20260707_161638_detailed.txt
+    [33 rows, 10,607 bytes]
+      /Volumes/PRJ-smile/raw_data_all/Chinese Fake Smiles/Participant 107_Participant 77 chi sad 1 C01_Analysis 1_video_20260707_164701_detailed.txt
+      /Volumes/PRJ-smile/raw_data_all/European Fake Smiles/Participant 107_Participant 77 chi sad 1 C01_Analysis 1_video_20260707_164701_detailed.txt
+    [43 rows, 13,419 bytes]
+      /Volumes/PRJ-smile/raw_data_all/Chinese Fake Smiles/Participant 108_Participant 78 chi sad 2 C01_Analysis 1_video_20260707_164738_detailed.txt
+      /Volumes/PRJ-smile/raw_data_all/European Fake Smiles/Participant 108_Participant 78 chi sad 2 C01_Analysis 1_video_20260707_164738_detailed.txt
+
+  Full list written to 00a_duplicate_pairs.csv (719 rows)
+
+  Reverse check - 5 pairs the method says are DIFFERENT:
+    Participant 370_Participant  vs Participant 74_Participant 4 identical? FALSE
+    Participant 359_Participant  vs Participant 329_Participant  identical? FALSE
+    Participant 274_Participant  vs Participant 113_Participant  identical? FALSE
+    Participant 341_Participant  vs Participant 268_Participant  identical? FALSE
+    Participant 29_Participant 1 vs Participant 41_Participant 1 identical? FALSE
+    All should read FALSE.
+
+5. CLIP CODES
+--------------------------------------------------------------------------
+  Expected form: <letters><number><HA|SA><number>-<number>, e.g. E11HA01-01
+
+  Codes read      : 720 of 720 detailed files
+  Match the form  : 720
+  Do NOT match    : 0
+
+  Culture letters found:
+    'E' -> Chinese      601 clips
+    'W' -> European     119 clips
+
+  Condition letters found:
+    HA     360
+    SA     360
+
+  Clip codes used for more than one DIFFERENT clip:
+    ** E27HA03-02
+         'Sad 3 CN'  61 rows  (Chinese Fake Smiles)
+         'Happy 3 CN'  60 rows  (Chinese Genuine Smiles)
+    These are ambiguous and will be held out of the analysis.
+
+6. DO THE FOLDERS AGREE WITH THE CODES?
+--------------------------------------------------------------------------
+  Culture letter by folder:
+                             culture
+    folder                      E   W
+      Chinese Fake Smiles     151  30
+      Chinese Genuine Smiles  150  30
+      European Fake Smiles    151  29
+      European Genuine Smiles 149  30
+
+  If a folder contains both letters, the folder name does NOT identify
+  culture and must not be used for it. Only the clip code is reliable.
+
+  Condition by folder:
+                             condition
+    folder                     HA  SA
+      Chinese Fake Smiles       2 179
+      Chinese Genuine Smiles  178   2
+      European Fake Smiles      2 178
+      European Genuine Smiles 178   1
+
+  Clips whose folder and code disagree on condition: 7
+    E07HA02-03     folder='Chinese Fake Smiles'
+    E27HA03-02     folder='Chinese Fake Smiles'
+    E25SA07-03     folder='Chinese Genuine Smiles'
+    E32SA02-01     folder='Chinese Genuine Smiles'
+    E07HA02-03     folder='European Fake Smiles'
+    E27HA03-02     folder='European Fake Smiles'
+    E25SA07-03     folder='European Genuine Smiles'
+
+7. SMILERS  (counting each clip once)
+--------------------------------------------------------------------------
+  IDs are taken from the code EXACTLY as written and are NOT padded.
+  E1 and E01 are different people; padding would merge them.
+
+  Distinct smilers: 31
+
+  Clips per smiler:
+    
+    E01 E04 E06 E07 E09  E1 E10 E11 E13 E14 E15 E17 E18 E19 E20 E22 E23 E24 E25 E26 E27 E28 E30 E31 E32 E56 W56 W70 W71 W72 W73 
+     12  12  12  12  12  12  12  12  12  12  12  12  12  12  12  12  12  12  12  12  12  12  12  12  11   1  11  12  13  11  12 
+
+  Smiler numbers written two ways (e.g. E1 and E01): 1
+    E1 and E01  -> kept separate; check with Ted they are different people
+
+8. DESIGN COVERAGE  (unique clips)
+--------------------------------------------------------------------------
+         condition
+  culture  HA  SA
+        E 150 150
+        W  30  29
+
+  Smilers per cell:
+    HA SA
+  E 25 26
+  W  5  5
+
+9. WHAT TO CHECK BEFORE EXTRACTING
+--------------------------------------------------------------------------
+  - Section 5: any UNKNOWN culture letters? Add them to 00_config.R.
+  - Section 5: any codes reused for different clips? Ask Ted.
+  - Section 6: folder/code disagreements on condition?
+  - Section 7: any padded/unpadded smiler pairs to confirm?
+  - Section 2: any state logs still needing re-export?
+
+==========================================================================
+END OF INSPECTION
